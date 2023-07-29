@@ -7,7 +7,7 @@ const Item = styled("div")(() => ({
   borderRadius: "2vw",
   // textAlign: "center",
   aspectRatio: "1/1.25",
-//   backgroundColor: "black",
+  backgroundColor: "white",
 }));
 
 export default Item;

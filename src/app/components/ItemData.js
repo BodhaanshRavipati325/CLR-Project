@@ -4,12 +4,12 @@ import { Divider, List, ListItem } from "@mui/material";
 
 export default function ItemData(props, name) {
   const list = props.props.map((data) => (
-    <>
-      <ListItem sx={{ display: "flex", alignItems: "center", height: "7vh" }}>
-        <h1 id="key" style={{ color: data.color }}>{data.name}</h1>
+    <div style={{borderRadius: "20px", borderStyle: "double", borderWidth: "0px", backgroundColor: data.color}}>
+      <ListItem sx={{ display: "flex", alignItems: "center", height: "8vh", gap: "10px"}}>
+        <h1 id="key">{data.name}</h1>
       </ListItem>
       <Divider></Divider>
-    </>
+    </div>
   ));
 
   return (

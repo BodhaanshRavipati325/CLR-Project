@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ItemData from "./ItemData";
 
-import Item from "/Users/bodhaanshravipati/clr-project/my-app/src/app/components/Item.js";
+import Item from "./Item";
 
 export default function GridData(props) {
   const [volume, setVolume] = useState([]);

@@ -1,0 +1,16 @@
+{
+    "user": "John Doe",
+    "achievements": [
+        {
+            "name": "Test",
+            "data": [
+                {"name": "Test", "color": "green"},
+                {"name": "Test", "color": "green"},
+                {"name": "Test", "color": "green"},
+                {"name": "Test", "color": "green"},
+                {"name": "Test", "color": "green"},
+                {"name": "Test", "color": "green"}
+            ]
+        }
+    ]
+}

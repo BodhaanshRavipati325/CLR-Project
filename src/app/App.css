@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Nabla', cursive;
+}
+
+#update-text {
+
+  color: rgb(178, 178, 178);
+  position: absolute;
+  /* font-family: Air; */
+  font-style: italic;
+
+  font-size: 1vw;
+
+  width: 100%;
+  text-align: center;
+
+  margin-top: 8vh;
+}
+
+#title-text {
+  position: absolute;
+  /* font-family: Air; */
+  font-weight: bold;
+
+  font-size: 1.25vw;
+
+  width: 60%;
+  text-align: center;
+
+  margin-top: 20vh;
+  margin-left: 20vw;
+}
+
+#key {
+  width: 100%;
+  text-align: center;
+  color: gold;
+
+  font-family: Air;
+  /* padding-left: 1vw; */
+
+  font-size: 3vw;
+}
+
+/* #value {
+  width: 100%;
+  position: relative;
+  text-align: right;
+  color: gold;
+
+  font-family: Air;
+
+  padding-right: 1vw;
+
+  font-size: 3vw;
+} */
+
+#dataKey {
+  position: absolute;
+
+  width: 32%;
+  text-align: center;
+
+  font-family: Air;
+  font-style: italic;
+
+  font-size: 1.7vw;
+}

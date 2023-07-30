@@ -2,7 +2,6 @@
 
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { TypeAnimation } from "react-type-animation";
 
 import GridData from "./GridData";
 
@@ -37,7 +36,7 @@ export default function Titles() {
 
       <h4 id="update-text">UPDATED {today}</h4>
 
-      <TypeAnimation
+      {/* <TypeAnimation
         sequence={[
           // Same substring at the start will only be typed out once, initially
           "Keep Your Crypto Safe",
@@ -57,7 +56,7 @@ export default function Titles() {
           marginTop: "10vh",
         }}
         repeat={Infinity}
-      ></TypeAnimation>
+      ></TypeAnimation> */}
 
       <h5 id="title-text">
         Make sure that your crypto exchanges are safe and capable of

@@ -2,12 +2,11 @@
 
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { TypeAnimation } from "react-type-animation";
 
 import GridData from "../components/GridData";
 
-import data from "/Users/bodhaanshravipati/clr-project/my-app/public/test.json";
-import test from "/Users/bodhaanshravipati/clr-project/my-app/public/testA.json";
+import data from "/test.json";
+import test from "/testA.json";
 
 import { readUserData, writeUserData } from "../firebase";
 
@@ -54,7 +53,7 @@ export default function Page({ params }) {
 
             <h4 id="update-text">UPDATED {today}</h4>
 
-            <TypeAnimation
+            {/* <TypeAnimation
                 sequence={[
                     // Same substring at the start will only be typed out once, initially
                     "Keep Your Crypto Safe",
@@ -74,7 +73,7 @@ export default function Page({ params }) {
                     marginTop: "10vh",
                 }}
                 repeat={Infinity}
-            ></TypeAnimation>
+            ></TypeAnimation> */}
 
             <h5 id="title-text">
                 Make sure that your crypto exchanges are safe and capable of

@@ -10,36 +10,10 @@ import ItemData from "./ItemData";
 import Item from "./Item";
 
 export default function GridData(props) {
-  const [volume, setVolume] = useState([]);
-  const [longValue, setLongValue] = useState([]);
-  const [shortValue, setShortValue] = useState([]);
-  const [rate, setRate] = useState([]);
-  const [averagePrice, setAveragePrice] = useState([]);
-
-  function fetchLiquidationData() {
-    fetch("https://crypto-safety.onrender.com/liquidation-data")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-
-        setVolume(data.liquidationData);
-        setLongValue(data.longValue);
-        setShortValue(data.shortValue);
-        setRate(data.rate);
-        setAveragePrice(data.averagePrice);
-      });
-  }
-
-  useEffect(() => {
-    fetchLiquidationData();
-    return;
-  }, []);
 
   const list = props.userData.achievements.map((data) => (
     <>
-      <Grid xs={4}>
+      <Grid key={data.name} xs={4}>
           <Item sx={{backgroundColor: "white"}}>
             <h2 id="dataKey">{data.name}</h2>
             <ItemData props={data.data}></ItemData>

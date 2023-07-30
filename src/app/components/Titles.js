@@ -1,12 +1,15 @@
 "use client"
 
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 import GridData from "./GridData";
 
 import data from "/Users/bodhaanshravipati/clr-project/my-app/public/test.json";
+import {readUserData, writeUserData} from "../firebase"
+
+import { getDatabase, ref, onValue } from "firebase/database";
 
 export default function Titles() {
   var today = new Date();
@@ -23,7 +26,7 @@ export default function Titles() {
     " at " +
     today.getHours() +
     ":" +
-    today.getMinutes();
+    today.getMinutes();    
 
   return (
     <>

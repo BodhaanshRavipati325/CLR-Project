@@ -5,9 +5,6 @@ import React, { useEffect, useState } from "react";
 
 import GridData from "../components/GridData";
 
-import data from "/Users/bodhaanshravipati/clr-project/my-app/public/test.json";
-import test from "/Users/bodhaanshravipati/clr-project/my-app/public/testA.json";
-
 import { readUserData, writeUserData } from "../firebase";
 
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -20,7 +17,18 @@ export default function Page({ params }) {
     var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
     var yyyy = today.getFullYear();
 
-    const [userDataJSON, setUserDataJSON] = useState(data);
+    const [userDataJSON, setUserDataJSON] = useState(
+        {
+            "user": "",
+            "degree": "",
+            "achievements": [
+                {
+                    "name": "",
+                    "data": [{}]
+                }
+            ]
+        }
+    );
 
     today =
         mm +
@@ -34,14 +42,85 @@ export default function Page({ params }) {
         today.getMinutes();
 
     useEffect(() => {
-        writeUserData(params.userID, test).then(() => {
+        writeUserData(params.userID, {
+            "user": "John Doe",
+            "degree": "BS in Computer Science",
+            "achievements": [
+                {
+                    "name": "Test",
+                    "data": [
+                        { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" }
+                    ]
+                },
+                {
+                    "name": "Test",
+                    "data": [
+                        { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" }
+                    ]
+                },
+                {
+                    "name": "Test",
+                    "data": [
+                        { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" }
+                    ]
+                },
+                {
+                    "name": "Test",
+                    "data": [
+                        { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" }
+                    ]
+                },
+                {
+                    "name": "Test",
+                    "data": [
+                        { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" }
+                    ]
+                },
+                {
+                    "name": "Test",
+                    "data": [
+                        { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" },
+                        { "name": "Test", "color": "green" }
+                    ]
+                }
+            ]
+        }).then(() => {
             return readUserData(params.userID);
         }
         ).then((response) => {
             setUserDataJSON(response);
+            console.log(userDataJSON);
         })
 
-        console.log(userDataJSON);
         return;
     }, []);
 
@@ -108,7 +187,7 @@ export default function Page({ params }) {
                 </Button>
             </a>
 
-            <div style={{position: "absolute", width: "40%", marginLeft: "29vw", marginTop: "34vh"}}>
+            <div style={{ position: "absolute", width: "40%", marginLeft: "29vw", marginTop: "34vh" }}>
                 <ProgressLine
                     // label="Full progressbar"
                     visualParts={[

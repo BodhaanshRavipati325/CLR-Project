@@ -5,9 +5,13 @@ import React, { useEffect, useState } from "react";
 
 import GridData from "../components/GridData";
 
+import data from "/Users/bodhaanshravipati/clr-project/my-app/public/test.json";
+import test from "/Users/bodhaanshravipati/clr-project/my-app/public/testA.json";
+
 import { readUserData, writeUserData } from "../firebase";
 
 import { getDatabase, ref, onValue } from "firebase/database";
+import ProgressLine from "../components/ProgressBar";
 
 export default function Page({ params }) {
 
@@ -29,24 +33,20 @@ export default function Page({ params }) {
         ":" +
         today.getMinutes();
 
-    // useEffect(() => {
-    //         writeUserData(params.userID, test).then(() => {
-    //             return readUserData(params.userID);
-    //         }
-    //         ).then((response) => {
-    //             setUserDataJSON(response);
-    //         })
+    useEffect(() => {
+        writeUserData(params.userID, test).then(() => {
+            return readUserData(params.userID);
+        }
+        ).then((response) => {
+            setUserDataJSON(response);
+        })
 
-    //     console.log(userDataJSON);
-    //     return;
-    // }, []);
+        console.log(userDataJSON);
+        return;
+    }, []);
 
     return (
         <>
-            {/* <img id="bitcoin-logo" src={bitcoinLogo}></img>
-      <img id="ethereum-logo" src={ethereumLogo}></img>
-      <img id="bnb-logo" src={bnbLogo}></img>
-      <img id="usdc-logo" src={usdcLogo}></img> */}
 
             <h4 id="update-text">UPDATED {today}</h4>
 
@@ -72,11 +72,10 @@ export default function Page({ params }) {
                 repeat={Infinity}
             ></TypeAnimation> */}
 
+            <h1 id="title">{userDataJSON.user}</h1>
+
             <h5 id="title-text">
-                Make sure that your crypto exchanges are safe and capable of
-                withstanding market fluctuations. With the collapse of FTX indicating
-                severe market insecurity, customers must actively ensure the safety of
-                their investments.
+                {userDataJSON.degree}
             </h5>
 
             <Button
@@ -109,7 +108,20 @@ export default function Page({ params }) {
                 </Button>
             </a>
 
-            {/* <GridData userData={userDataJSON}></GridData> */}
+            <div style={{position: "absolute", width: "40%", marginLeft: "29vw", marginTop: "34vh"}}>
+                <ProgressLine
+                    // label="Full progressbar"
+                    visualParts={[
+                        {
+                            percentage: "95%",
+                            color: "white"
+                        }
+                    ]}
+                />
+
+            </div>
+
+            <GridData userData={userDataJSON}></GridData>
         </>
     );
 }

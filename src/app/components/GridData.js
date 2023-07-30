@@ -14,7 +14,7 @@ export default function GridData(props) {
   const list = props.userData.achievements.map((data) => (
     <>
       <Grid key={data.name} xs={4}>
-          <Item sx={{backgroundColor: "white"}}>
+          <Item sx={{backgroundColor: "black"}}>
             <h2 id="dataKey">{data.name}</h2>
             <ItemData props={data.data}></ItemData>
           </Item>
@@ -28,7 +28,7 @@ export default function GridData(props) {
       sx={{
         width: "75%",
         position: "absolute",
-        marginTop: "40vh",
+        marginTop: "48vh",
         marginLeft: "12vw",
       }}
     >

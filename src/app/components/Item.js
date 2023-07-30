@@ -1,5 +1,6 @@
 "use client"
 
+import { width } from "@mui/system";
 import styled from "@mui/system/styled";
 
 const Item = styled("div")(() => ({
@@ -7,7 +8,10 @@ const Item = styled("div")(() => ({
   borderRadius: "2vw",
   // textAlign: "center",
   aspectRatio: "1/1.25",
-  backgroundColor: "white",
+  backgroundColor: "black",
+  borderWidth: "4px",
+  borderStyle: "solid",
+  borderColor: "white"
 }));
 
 export default Item;

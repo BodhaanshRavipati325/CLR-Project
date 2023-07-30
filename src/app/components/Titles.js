@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 
 import GridData from "./GridData";
 
-import data from "/Users/bodhaanshravipati/clr-project/my-app/public/test.json";
 import {readUserData, writeUserData} from "../firebase"
 
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -95,7 +94,7 @@ export default function Titles() {
         </Button>
       </a>
 
-      <GridData userData={data}></GridData>
+      {/* <GridData userData={data}></GridData> */}
     </>
   );
 }

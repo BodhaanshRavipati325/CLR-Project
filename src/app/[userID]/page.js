@@ -5,9 +5,6 @@ import React, { useEffect, useState } from "react";
 
 import GridData from "../components/GridData";
 
-import data from "/test.json";
-import test from "/testA.json";
-
 import { readUserData, writeUserData } from "../firebase";
 
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -32,17 +29,17 @@ export default function Page({ params }) {
         ":" +
         today.getMinutes();
 
-    useEffect(() => {
-            writeUserData(params.userID, test).then(() => {
-                return readUserData(params.userID);
-            }
-            ).then((response) => {
-                setUserDataJSON(response);
-            })
+    // useEffect(() => {
+    //         writeUserData(params.userID, test).then(() => {
+    //             return readUserData(params.userID);
+    //         }
+    //         ).then((response) => {
+    //             setUserDataJSON(response);
+    //         })
 
-        console.log(userDataJSON);
-        return;
-    }, []);
+    //     console.log(userDataJSON);
+    //     return;
+    // }, []);
 
     return (
         <>
@@ -112,7 +109,7 @@ export default function Page({ params }) {
                 </Button>
             </a>
 
-            <GridData userData={userDataJSON}></GridData>
+            {/* <GridData userData={userDataJSON}></GridData> */}
         </>
     );
 }

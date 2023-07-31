@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue, child, get } from "firebase/database";
 import { useEffect } from "react";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -31,13 +31,39 @@ async function writeUserData(userId, data) {
 }
 
 async function readUserData(userId) {
-    const userDataRef = ref(db, 'users/' + userId);
-    let userDataJSON = {};
-    onValue(userDataRef, (snapshot) => {
-      const data = snapshot.val();
-      userDataJSON = data;
-    });
-    return userDataJSON;
+  const userDataRef = ref(db, "users/" + userId);
+  let userDataJSON = {};
+  onValue(userDataRef, (snapshot) => {
+    const data = snapshot.val();
+    userDataJSON = data;
+  });
+  return userDataJSON;
 }
 
-export {writeUserData, readUserData};
+async function readUserDataA(userId) {
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, `/users/${userId}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        return snapshot.val();
+      } else {
+        writeUserData(userId, {
+          user: "",
+          degree: "",
+          achievements: [
+            {
+              name: "",
+              data: [{}],
+            },
+          ],
+        });
+        return readUserDataA(userId);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+export { writeUserData, readUserData, readUserDataA };

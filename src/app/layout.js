@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey='pk_test_dG91Y2hpbmctYW50LTQ0LmNsZXJrLmFjY291bnRzLmRldiQ'>
     <html lang="en">
       <body className={inter.className}>{children}</body>
     </html>

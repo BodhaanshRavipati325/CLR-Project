@@ -8,7 +8,7 @@ import GridData from "./GridData";
 import {readUserData, writeUserData} from "../firebase"
 
 import { getDatabase, ref, onValue } from "firebase/database";
-import SignInPage from "../sign-in/[...sign-in]/page";
+import SignInPage from "./SignInPage";
 import { useAuth } from "@clerk/nextjs";
 import {NextResponse } from "next/server";
 import { redirect } from 'next/navigation';

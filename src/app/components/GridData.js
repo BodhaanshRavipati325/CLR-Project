@@ -8,10 +8,15 @@ import { useState } from "react";
 import ItemData from "./ItemData";
 
 import Item from "./Item";
+import { useAtom } from "jotai";
+import userData from "../users/[userID]/UserData";
 
 export default function GridData(props) {
-
-  const list = props.userData.achievements.map((data) => (
+  const [userDataJSON, setUserDataJSON] = useAtom(userData);
+  
+  let list = <></>;
+  try {
+  list = userDataJSON.achievements.map((data) => (
     <>
       <Grid key={data.name} xs={4}>
           <Item sx={{backgroundColor: "black"}}>
@@ -21,6 +26,10 @@ export default function GridData(props) {
         </Grid>
     </>
   ));
+  }
+  catch (e) {
+    console.log("Error Loading Achievements: ", props)
+  }
 
   return (
     <>

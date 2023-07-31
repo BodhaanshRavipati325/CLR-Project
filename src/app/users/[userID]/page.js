@@ -1,41 +1,26 @@
 "use client";
 
 import { Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import GridData from "../../components/GridData";
 
-import { readUserData, readUserDataA, writeUserData } from "../../firebase";
+import { writeUserData } from "../../firebase";
 
-// import { getDatabase, ref, onValue, child, get} from "firebase/database";
 import ProgressLine from "../../components/ProgressBar";
-import { UserButton } from "@clerk/nextjs";
 import UserSettings from "../../components/UserButton";
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
-
-import { getDatabase, ref, set, onValue, child, get } from "firebase/database";
+import { child, get, getDatabase, ref } from "firebase/database";
+import { useAtom } from "jotai";
+import userData from "./UserData";
 
 export default function Page({ params }) {
-
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
     var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
     var yyyy = today.getFullYear();
 
-    const [userDataJSON, setUserDataJSON] = useState(
-        {
-            "user": "",
-            "degree": "",
-            "achievements": [
-                {
-                    "name": "",
-                    "data": [{}]
-                }
-            ]
-        }
-    );
+    const [userDataJSON, setUserDataJSON] = useAtom(userData);
 
     today =
         mm +
@@ -49,105 +34,19 @@ export default function Page({ params }) {
         today.getMinutes();
 
     useEffect(() => {
-        // async function getUserData() {
-        // writeUserData(params.userID, {
-        //     "user": "John Doe",
-        //     "degree": "BS in Computer Science",
-        //     "achievements": [
-        //         {
-        //             "name": "Test",
-        //             "data": [
-        //                 { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" }
-        //             ]
-        //         },
-        //         {
-        //             "name": "Test",
-        //             "data": [
-        //                 { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" }
-        //             ]
-        //         },
-        //         {
-        //             "name": "Test",
-        //             "data": [
-        //                 { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" }
-        //             ]
-        //         },
-        //         {
-        //             "name": "Test",
-        //             "data": [
-        //                 { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" }
-        //             ]
-        //         },
-        //         {
-        //             "name": "Test",
-        //             "data": [
-        //                 { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" }
-        //             ]
-        //         },
-        //         {
-        //             "name": "Test",
-        //             "data": [
-        //                 { "name": "Teste3e3ewe3", "color": "grew2w2wen" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" },
-        //                 { "name": "Test", "color": "green" }
-        //             ]
-        //         }
-        //     ]
-        // }).then(() => {
-        // setUserDataJSON(await readUserDataA(params.userID));
-
-        // return readUserDataA(params.userID);
-        //  setUserDataJSON(readUserDataA(params.userID));
-        // }
-        // ).then((response) => {
-        //     setUserDataJSON(response);
-        //     console.log(userDataJSON);
-        // })
-        // }
-        // getUserData();
-
-        // readUserDataA(params.userID).then((response) => {
-        //     console.log(response);
-        //     // setUserDataJSON(response);
-        // })
-
         const dbRef = ref(getDatabase());
+
         get(child(dbRef, `/users/${params.userID}`))
             .then((snapshot) => {
                 if (snapshot.exists()) {
-                    console.log(snapshot.val());
+                    console.log("Snapshot: ", snapshot.val());
                     setUserDataJSON(snapshot.val());
                 } else {
-                    writeUserData(userId, {
+                    writeUserData(params.userID, {
                         user: "",
+                        university: "",
+                        email: "",
+                        city: "",
                         degree: "",
                         achievements: [
                             {
@@ -156,15 +55,24 @@ export default function Page({ params }) {
                             },
                         ],
                     });
-                    return readUserDataA(userId);
+                    setUserDataJSON({
+                        user: "",
+                        university: "",
+                        email: "",
+                        city: "",
+                        degree: "",
+                        achievements: [
+                            {
+                                name: "",
+                                data: [{}],
+                            },
+                        ],
+                    });
                 }
             })
             .catch((error) => {
                 console.error(error);
             });
-
-
-        // console.log(userDataJSON)
 
         return;
     }, []);
@@ -173,38 +81,13 @@ export default function Page({ params }) {
         <>
             <div style={{ position: "absolute", marginLeft: "95vw" }}>
                 <UserSettings></UserSettings>
-
             </div>
 
             <h4 id="update-text">UPDATED {today}</h4>
 
-            {/* <TypeAnimation
-                sequence={[
-                    // Same substring at the start will only be typed out once, initially
-                    "Keep Your Crypto Safe",
-                    1000,
-                ]}
-                wrapper="span"
-                speed={50}
-                style={{
-                    position: "absolute",
-                    color: "gold",
-                    fontFamily: "Air",
-                    fontWeight: "bold",
-                    fontStyle: "normal",
-                    fontSize: "4vw",
-                    width: "100%",
-                    textAlign: "center",
-                    marginTop: "10vh",
-                }}
-                repeat={Infinity}
-            ></TypeAnimation> */}
-
             <h1 id="title">{userDataJSON.user}</h1>
 
-            <h5 id="title-text">
-                {userDataJSON.degree}
-            </h5>
+            <h5 id="title-text">{userDataJSON.degree} , {userDataJSON.university}</h5>
 
             <Button
                 sx={{
@@ -236,17 +119,22 @@ export default function Page({ params }) {
                 </Button>
             </a>
 
-            <div style={{ position: "absolute", width: "40%", marginLeft: "29vw", marginTop: "34vh" }}>
+            <div
+                style={{
+                    position: "absolute",
+                    width: "40%",
+                    marginLeft: "29vw",
+                    marginTop: "34vh",
+                }}
+            >
                 <ProgressLine
-                    // label="Full progressbar"
                     visualParts={[
                         {
                             percentage: "95%",
-                            color: "white"
-                        }
+                            color: "white",
+                        },
                     ]}
                 />
-
             </div>
 
             <GridData userData={userDataJSON}></GridData>

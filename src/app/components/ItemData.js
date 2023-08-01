@@ -20,7 +20,7 @@ export default function ItemData(props, name) {
     ));
   }
   catch (e) {
-    console.log("Error Loading Achievements: ", props);
+    console.log("Error Loading Achievements: ", userDataJSON);
   }
 
   return (

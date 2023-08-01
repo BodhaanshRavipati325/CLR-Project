@@ -1,37 +1,26 @@
-"use client";
+"use client"
 
-import { Button } from "@mui/material";
-import { useEffect } from "react";
+import { useAtom } from 'jotai'
+import userData from './UserData'
 
-import GridData from "../../components/GridData";
+import buildingIcon from '../../../../public/buildingIcon.png'
+import contractIcon from '../../../../public/contractIcon.png'
+import editIcon from '../../../../public/editIcon.svg'
+import ColumnBox from './ColumnBox'
+import RowBox from './RowBox'
 
-import { writeUserData } from "../../firebase";
-
-import ProgressLine from "../../components/ProgressBar";
-import UserSettings from "../../components/UserButton";
-
-import { child, get, getDatabase, ref } from "firebase/database";
-import { useAtom } from "jotai";
-import userData from "./UserData";
+import UserSettings from '@/app/components/UserButton'
+import { child, get, getDatabase, ref } from "firebase/database"
+import { useEffect } from "react"
+import { writeUserData } from "../../firebase"
+import EducationExperiences from './EducationExperiences'
+import LeadershipExperiences from './LeadershipExperiences'
+import WorkExperiences from './WorkExperiences'
+import DescriptionBox from './DescriptionBox'
 
 export default function Page({ params }) {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var yyyy = today.getFullYear();
 
     const [userDataJSON, setUserDataJSON] = useAtom(userData);
-
-    today =
-        mm +
-        "/" +
-        dd +
-        "/" +
-        yyyy +
-        " at " +
-        today.getHours() +
-        ":" +
-        today.getMinutes();
 
     useEffect(() => {
         const dbRef = ref(getDatabase());
@@ -43,30 +32,150 @@ export default function Page({ params }) {
                     setUserDataJSON(snapshot.val());
                 } else {
                     writeUserData(params.userID, {
-                        user: "",
-                        university: "",
-                        email: "",
-                        city: "",
-                        degree: "",
-                        achievements: [
-                            {
-                                name: "",
-                                data: [{}],
-                            },
-                        ],
+                        "user": "",
+                        "university": "",
+                        "email": "",
+                        "city": "",
+                        "degree": "",
+                        "resumeLink": "/",
+                        "diplomaLink": "/",
+                        "transcriptLink": "/",
+                        "linkedInLink": "/",
+                        "educationalExperiences": {
+                            "experiences": [
+                                {
+                                    "university": "",
+                                    "department": "",
+                                    "degree": "",
+                                    "description": ""
+                                }
+                            ],
+                            "description": ""
+                        },
+                        "workExperiences": {
+                            "experiences": [
+                                {
+                                    "university": "",
+                                    "department": "",
+                                    "degree": "",
+                                    "description": ""
+                                }
+                            ],
+                            "description": ""
+                        },
+                        "leadershipExperiences": {
+                            "experiences": [
+                                {
+                                    "university": "",
+                                    "department": "",
+                                    "degree": "",
+                                    "description": ""
+                                }
+                            ],
+                            "description": ""
+                        },
+                        "achievements": {
+                            "education": [
+                                {
+                                    "name": "",
+                                    "data": [{
+                                        "name": "",
+                                        "color": ""
+                                    }]
+                                }
+                            ],
+                            "professional": [
+                                {
+                                    "name": "",
+                                    "data": [{
+                                        "name": "",
+                                        "color": ""
+                                    }]
+                                }
+                            ],
+                            "leadership": [
+                                {
+                                    "name": "",
+                                    "data": [{
+                                        "name": "",
+                                        "color": ""
+                                    }]
+                                }
+                            ]
+                        }
                     });
                     setUserDataJSON({
-                        user: "",
-                        university: "",
-                        email: "",
-                        city: "",
-                        degree: "",
-                        achievements: [
-                            {
-                                name: "",
-                                data: [{}],
-                            },
-                        ],
+                        "user": "",
+                        "university": "",
+                        "email": "",
+                        "city": "",
+                        "degree": "",
+                        "resumeLink": "/",
+                        "diplomaLink": "/",
+                        "transcriptLink": "/",
+                        "linkedInLink": "/",
+                        "educationalExperiences": {
+                            "experiences": [
+                                {
+                                    "university": "",
+                                    "department": "",
+                                    "degree": "",
+                                    "description": ""
+                                }
+                            ],
+                            "description": ""
+                        },
+                        "workExperiences": {
+                            "experiences": [
+                                {
+                                    "university": "",
+                                    "department": "",
+                                    "degree": "",
+                                    "description": ""
+                                }
+                            ],
+                            "description": ""
+                        },
+                        "leadershipExperiences": {
+                            "experiences": [
+                                {
+                                    "university": "",
+                                    "department": "",
+                                    "degree": "",
+                                    "description": ""
+                                }
+                            ],
+                            "description": ""
+                        },
+                        "achievements": {
+                            "education": [
+                                {
+                                    "name": "",
+                                    "data": [{
+                                        "name": "",
+                                        "color": ""
+                                    }]
+                                }
+                            ],
+                            "professional": [
+                                {
+                                    "name": "",
+                                    "data": [{
+                                        "name": "",
+                                        "color": ""
+                                    }]
+                                }
+                            ],
+                            "leadership": [
+                                {
+                                    "name": "",
+                                    "data": [{
+                                        "name": "",
+                                        "color": ""
+                                    }]
+                                }
+                            ]
+                        }
                     });
                 }
             })
@@ -79,65 +188,38 @@ export default function Page({ params }) {
 
     return (
         <>
-            <div style={{ position: "absolute", marginLeft: "95vw" }}>
-                <UserSettings></UserSettings>
+            <div id="column-container">
+                <div id="profile-container">
+                    <div id="profile-picture">
+                        <UserSettings></UserSettings>
+                    </div>
+                    <div id="profile-info-container">
+                        <p>{userDataJSON.user}</p>
+                        <p>{userDataJSON.university}</p>
+                        <p>{userDataJSON.email}</p>
+                        <p>{userDataJSON.city}</p>
+                    </div>
+                </div>
+                <ColumnBox name="Educational Experience" icon={editIcon} link={`/users/${params.userID}/educationExperience`}></ColumnBox>
+                <ColumnBox name="Professional Experience" icon={buildingIcon} link={`/users/${params.userID}/workExperience`}></ColumnBox>
+                <ColumnBox name="Leadership, Involvement" icon={contractIcon} link={`/users/${params.userID}/leadershipExperience`}></ColumnBox>
             </div>
-
-            <h4 id="update-text">UPDATED {today}</h4>
-
-            <h1 id="title">{userDataJSON.user}</h1>
-
-            <h5 id="title-text">{userDataJSON.degree} , {userDataJSON.university}</h5>
-
-            <Button
-                sx={{
-                    color: "white",
-                    fontFamily: "Air",
-                    border: 1,
-                    borderRadius: 2,
-                    position: "absolute",
-                    marginTop: "29.5vh",
-                    marginLeft: "43vw",
-                }}
-            >
-                Learn More
-            </Button>
-
-            <a href="https://www.coinglass.com/">
-                <Button
-                    sx={{
-                        color: "white",
-                        fontFamily: "Air",
-                        border: 1,
-                        borderRadius: 2,
-                        position: "absolute",
-                        marginTop: "29.5vh",
-                        marginLeft: "50vw",
-                    }}
-                >
-                    Data
-                </Button>
-            </a>
-
-            <div
-                style={{
-                    position: "absolute",
-                    width: "40%",
-                    marginLeft: "29vw",
-                    marginTop: "34vh",
-                }}
-            >
-                <ProgressLine
-                    visualParts={[
-                        {
-                            percentage: "95%",
-                            color: "white",
-                        },
-                    ]}
-                />
+            <div id="row-container">
+                <RowBox name="Resume" icon={editIcon} link={userDataJSON.resumeLink}></RowBox>
+                <RowBox name="Artifact Hub" icon={editIcon} link="/"></RowBox>
+                <RowBox name="Diploma" icon={editIcon} link={userDataJSON.diplomaLink}></RowBox>
+                <RowBox name="Transcript" icon={editIcon} link={userDataJSON.transcriptLink}></RowBox>
+                <RowBox name="LinkedIn" icon={editIcon} link={userDataJSON.linkedInLink}></RowBox>
             </div>
+            <EducationExperiences></EducationExperiences>
+            <WorkExperiences></WorkExperiences>
+            <LeadershipExperiences></LeadershipExperiences>
 
-            <GridData userData={userDataJSON}></GridData>
+            <div id="description-container">
+                <DescriptionBox experience="educationalExperience"></DescriptionBox>
+                <DescriptionBox experience="professionalExperience"></DescriptionBox>
+                <DescriptionBox experience="leadershipExperience"></DescriptionBox>
+            </div>
         </>
-    );
+    )
 }

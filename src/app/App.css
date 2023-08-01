@@ -26,6 +26,8 @@ body {
   background-color: black;
   color: white;
   font-family: 'Right Serif';
+
+  margin-left: 4vw;
 }
 
 #title {
@@ -206,21 +208,139 @@ body {
 
   margin-left: 24vw;
   margin-top: -79vh;
+
+  gap: 1vh;
 }
 
 #header-row {
-  border-radius: 1vw;
+  /* border-radius: 1vw;
   border-color: white;
-  border-style: solid;
+  border-style: solid; */
 
   width: 30vw;
   height: 8vh;
 }
 
 #header-title {
-  font-size: 1.5vw;
+  position: relative;
+  font-family: 'Right Serif';
+
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.25vw;
+  margin-bottom: -2vh;
 }
 
-#header-organization {
+#header-description {
+  position: relative;
+
+  font-family: 'Right Serif';
+
+  font-weight: normal;
   font-size: 1vw;
+  margin-top: 2.5vh;
+}
+
+#profile-container {
+  position: relative;
+  
+  display: flex;
+  flex-direction: row;
+
+  border-radius: 1vw;
+  border-color: white;
+  border-style: solid;
+
+  width: 19.5vw;
+  
+  font-family: 'Right Serif';
+  font-weight: bold;
+  /* font-style: italic; */
+
+  font-size: 1vw;
+}
+
+#profile-picture {
+  margin-top: 2vh;
+  margin-left: 0.5vw;
+}
+
+#profile-info-container {
+  margin-left: 1vw;
+}
+
+#header-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 80vh;
+}
+
+#professional-experiences {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Right Serif';
+  font-weight: bold;
+
+  margin-left: 24vw;
+  margin-top: -52vh;
+
+  gap: 1vh;
+}
+
+#leadership-experiences {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Right Serif';
+  font-weight: bold;
+
+  margin-left: 24vw;
+  margin-top: -25vh;
+
+  gap: 1vh;
+}
+
+#description-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: -79vh;
+  margin-left: 70.5vw;
+
+  gap: 1vh;
+}
+
+#description-box {
+  border-radius: 1vw;
+  border-color: white;
+  border-style: solid;
+
+  width: 20vw;
+  height: 25vh;
+
+  padding-top: 1vh;
+}
+
+#description-title {
+  position: relative;
+  font-family: 'Right Serif';
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2vw;
+  margin-top: -0.25%;
+  margin-left: 1vw;
+}
+
+#description-section {
+  font-family: 'Right Serif';
+  font-size: 1.25vw;
+  position: relative;
+  margin-top: -2vh;
+  margin-left: 1vw;
+  width: 25vw;
 }

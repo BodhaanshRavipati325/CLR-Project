@@ -13,10 +13,24 @@ import userData from "../users/[userID]/UserData";
 
 export default function GridData(props) {
   const [userDataJSON, setUserDataJSON] = useAtom(userData);
-  
+
   let list = <></>;
+  let achievementData = {};
+  
+  switch (props.experience) {
+    case "educationalExperience":
+        achievementData = userDataJSON.achievements.education
+      break;
+    case "professionalExperience":
+      achievementData = userDataJSON.achievements.professional
+      break;
+    case "leadershipExperience":
+      achievementData = userDataJSON.achievements.leadership
+      break;
+  }
+
   try {
-  list = userDataJSON.achievements.map((data) => (
+  list = achievementData.map((data) => (
     <>
       <Grid key={data.name} xs={4}>
           <Item sx={{backgroundColor: "black"}}>
@@ -28,7 +42,7 @@ export default function GridData(props) {
   ));
   }
   catch (e) {
-    console.log("Error Loading Achievements: ", props)
+    console.log("Error Loading Achievements: ", userDataJSON)
   }
 
   return (

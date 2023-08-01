@@ -30,6 +30,10 @@ async function writeUserData(userId, data) {
   set(ref(db, "users/" + userId), data);
 }
 
+async function writeUserDataJSON(link, data) {
+  set(ref(db, link), data);
+}
+
 async function readUserData(userId) {
   const userDataRef = ref(db, "users/" + userId);
   let userDataJSON = {};
@@ -66,4 +70,4 @@ async function readUserDataA(userId) {
     });
 }
 
-export { writeUserData, readUserData, readUserDataA };
+export { writeUserData, writeUserDataJSON, readUserData, readUserDataA };

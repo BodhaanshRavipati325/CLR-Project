@@ -17,6 +17,7 @@ import EducationExperiences from './EducationExperiences'
 import LeadershipExperiences from './LeadershipExperiences'
 import WorkExperiences from './WorkExperiences'
 import DescriptionBox from './DescriptionBox'
+import DialogField from './DialogField'
 
 export default function Page({ params }) {
 
@@ -44,9 +45,21 @@ export default function Page({ params }) {
                         "educationalExperiences": {
                             "experiences": [
                                 {
-                                    "university": "",
-                                    "department": "",
-                                    "degree": "",
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
                                     "description": ""
                                 }
                             ],
@@ -55,9 +68,21 @@ export default function Page({ params }) {
                         "workExperiences": {
                             "experiences": [
                                 {
-                                    "university": "",
-                                    "department": "",
-                                    "degree": "",
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
                                     "description": ""
                                 }
                             ],
@@ -66,9 +91,21 @@ export default function Page({ params }) {
                         "leadershipExperiences": {
                             "experiences": [
                                 {
-                                    "university": "",
-                                    "department": "",
-                                    "degree": "",
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
                                     "description": ""
                                 }
                             ],
@@ -117,9 +154,21 @@ export default function Page({ params }) {
                         "educationalExperiences": {
                             "experiences": [
                                 {
-                                    "university": "",
-                                    "department": "",
-                                    "degree": "",
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
                                     "description": ""
                                 }
                             ],
@@ -128,9 +177,21 @@ export default function Page({ params }) {
                         "workExperiences": {
                             "experiences": [
                                 {
-                                    "university": "",
-                                    "department": "",
-                                    "degree": "",
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
                                     "description": ""
                                 }
                             ],
@@ -139,9 +200,21 @@ export default function Page({ params }) {
                         "leadershipExperiences": {
                             "experiences": [
                                 {
-                                    "university": "",
-                                    "department": "",
-                                    "degree": "",
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
+                                    "description": ""
+                                },
+                                {
+                                    "title": "",
+                                    "subtext": "",
+                                    "textSection": "",
                                     "description": ""
                                 }
                             ],
@@ -188,6 +261,12 @@ export default function Page({ params }) {
 
     return (
         <>
+            <div id="edits-container">
+                <DialogField experience="educationalExperience" userID={params.userID}>eee</DialogField>
+                <DialogField experience="professionalExperience" userID={params.userID}>eee</DialogField>
+                <DialogField experience="leadershipExperience" userID={params.userID}>eee</DialogField>
+            </div>
+
             <div id="column-container">
                 <div id="profile-container">
                     <div id="profile-picture">
@@ -211,9 +290,12 @@ export default function Page({ params }) {
                 <RowBox name="Transcript" icon={editIcon} link={userDataJSON.transcriptLink}></RowBox>
                 <RowBox name="LinkedIn" icon={editIcon} link={userDataJSON.linkedInLink}></RowBox>
             </div>
-            <EducationExperiences></EducationExperiences>
-            <WorkExperiences></WorkExperiences>
-            <LeadershipExperiences></LeadershipExperiences>
+
+            <div id="experiences-container">
+                <EducationExperiences></EducationExperiences>
+                <WorkExperiences></WorkExperiences>
+                <LeadershipExperiences></LeadershipExperiences>
+            </div>
 
             <div id="description-container">
                 <DescriptionBox experience="educationalExperience"></DescriptionBox>

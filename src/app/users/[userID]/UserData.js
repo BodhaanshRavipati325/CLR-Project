@@ -13,9 +13,21 @@ let userData = atomWithStorage('userData', {
     "educationalExperiences": {
         "experiences": [
             {
-                "university": "",
-                "department": "",
-                "degree": "",
+                "title": "",
+                "subtext": "",
+                "textSection": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "subtext": "",
+                "textSection": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "subtext": "",
+                "textSection": "",
                 "description": ""
             }
         ],
@@ -24,9 +36,21 @@ let userData = atomWithStorage('userData', {
     "workExperiences": {
         "experiences": [
             {
-                "university": "",
-                "department": "",
-                "degree": "",
+                "title": "",
+                "subtext": "",
+                "textSection": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "subtext": "",
+                "textSection": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "subtext": "",
+                "textSection": "",
                 "description": ""
             }
         ],
@@ -35,9 +59,21 @@ let userData = atomWithStorage('userData', {
     "leadershipExperiences": {
         "experiences": [
             {
-                "university": "",
-                "department": "",
-                "degree": "",
+                "title": "",
+                "subtext": "",
+                "textSection": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "subtext": "",
+                "textSection": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "subtext": "",
+                "textSection": "",
                 "description": ""
             }
         ],

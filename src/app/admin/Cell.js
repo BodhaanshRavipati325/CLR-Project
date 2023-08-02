@@ -119,6 +119,7 @@ export default function Cell({value: initialValue, row: {index}, column: {id, da
               <div className='d-flex flex-wrap-wrap' style={{marginTop: "-0.5rem"}}>
                 {options.map((option) => (
                   <div
+                    key={Math.random()}
                     className='cursor-pointer'
                     style={{marginRight: "0.5rem", marginTop: "0.5rem"}}
                     onClick={() => {

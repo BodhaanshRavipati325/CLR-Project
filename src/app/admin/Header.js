@@ -211,7 +211,7 @@ export default function Header({
                     padding: "4px 0px"
                   }}>
                   {types.map((type) => (
-                    <button className='sort-button' onClick={type.onClick}>
+                    <button key={Math.random()} className='sort-button' onClick={type.onClick}>
                       {/* <span className='svg-icon svg-text icon-margin'>{type.icon}</span> */}
                       {type.label}
                     </button>
@@ -226,7 +226,7 @@ export default function Header({
                 padding: "4px 0px"
               }}>
               {buttons.map((button) => (
-                <button type='button' className='sort-button' onMouseDown={button.onClick}>
+                <button key={Math.random} type='button' className='sort-button' onMouseDown={button.onClick}>
                   {/* <span className='svg-icon svg-text icon-margin'>{button.icon}</span> */}
                   {button.label}
                 </button>

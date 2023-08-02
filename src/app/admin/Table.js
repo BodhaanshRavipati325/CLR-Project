@@ -70,7 +70,7 @@ export default function Table({columns, data, dispatch: dataDispatch, skipReset}
       <div {...getTableProps()} className={clsx("table", isTableResizing() && "noselect")}>
         <div>
           {headerGroups.map((headerGroup) => (
-            <div {...headerGroup.getHeaderGroupProps()} className='tr'>
+            <div key={Math.random()} {...headerGroup.getHeaderGroupProps()} className='tr'>
               {headerGroup.headers.map((column) => column.render("Header"))}
             </div>
           ))}
@@ -79,9 +79,9 @@ export default function Table({columns, data, dispatch: dataDispatch, skipReset}
           {rows.map((row, i) => {
             prepareRow(row);
             return (
-              <div {...row.getRowProps()} className='tr'>
+              <div key={Math.random()}{...row.getRowProps()} className='tr'>
                 {row.cells.map((cell) => (
-                  <div {...cell.getCellProps()} className='td'>
+                  <div key={Math.random()} {...cell.getCellProps()} className='td'>
                     {cell.render("Cell")}
                   </div>
                 ))}

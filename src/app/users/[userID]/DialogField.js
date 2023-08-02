@@ -135,8 +135,8 @@ export default function DialogField(props) {
                 Edit
             </Button>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Edit Your Experiences Data</DialogTitle>
-                <DialogContent>
+                <DialogTitle sx={{backgroundColor: "#c27e00", color: "white"}}>Edit Your Experiences Data</DialogTitle>
+                <DialogContent sx={{backgroundColor: "white", overflowY: "hidden", color: "white"}}>
                     <TextField
                         autoFocus
                         margin="dense"
@@ -268,7 +268,7 @@ export default function DialogField(props) {
                         }}
                     />
                 </DialogContent>
-                <DialogActions>
+                <DialogActions sx={{backgroundColor: "white"}}>
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleSubmit}>Submit</Button>
                 </DialogActions>

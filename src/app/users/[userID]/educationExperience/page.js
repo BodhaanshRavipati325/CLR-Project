@@ -8,6 +8,7 @@ import UserSettings from "../../../components/UserButton";
 
 import { useAtom } from "jotai";
 import userData from "../UserData";
+import Link from "next/link";
 
 export default function Page() {
     var today = new Date();
@@ -36,35 +37,30 @@ export default function Page() {
 
             <h5 id="title-text">{userDataJSON.degree} , {userDataJSON.university}</h5>
 
-            <Button
-                sx={{
-                    color: "white",
-                    fontFamily: "Air",
-                    border: 1,
-                    borderRadius: 2,
-                    position: "absolute",
-                    marginTop: "29.5vh",
-                    marginLeft: "43vw",
-                }}
-            >
-                Learn More
-            </Button>
-
-            <a href="https://www.coinglass.com/">
-                <Button
-                    sx={{
-                        color: "white",
-                        fontFamily: "Air",
-                        border: 1,
-                        borderRadius: 2,
-                        position: "absolute",
-                        marginTop: "29.5vh",
-                        marginLeft: "50vw",
-                    }}
-                >
-                    Data
-                </Button>
-            </a>
+            <div style={{ position: "absolute", marginLeft: "44.5vw" }}>
+                <Link href="/">
+                    <Button
+                        sx={{
+                            color: "white",
+                            fontFamily: "Air",
+                            borderRadius: "10px",
+                            borderColor: "#6298FE",
+                            borderStyle: "solid",
+                            borderWidth: "0.25vw",
+                            position: "absolute",
+                            marginTop: "29.5vh",
+                            width: "125px",
+                            height: "auto",
+                            color: "#6298FE",
+                            fontFamily: "Right Serif",
+                            fontWeight: "bold",
+                            fontStyle: "italic",
+                        }}
+                    >
+                        Profile
+                    </Button>
+                </Link>
+            </div>
 
             <div
                 style={{

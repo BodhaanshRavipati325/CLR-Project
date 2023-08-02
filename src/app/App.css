@@ -23,7 +23,7 @@
 }
 
 body {
-  background-color: #F5DEB3;
+  background-color: white;
   color: white;
   font-family: 'Right Serif';
 
@@ -37,7 +37,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 8vw;
+  font-size: 700%;
 
   color: #c27e00;
 }
@@ -48,7 +48,7 @@ body {
   font-family: 'Right Serif';
   font-style: italic;
 
-  font-size: 1vw;
+  font-size: 87.5%;
 
   width: 100%;
   text-align: center;
@@ -64,13 +64,13 @@ body {
   font-style: italic;
   text-transform: uppercase;
 
-  font-size: 1.25vw;
+  font-size: 109.375%;
 
-  width: 60%;
+  width: 100%;
   text-align: center;
 
   margin-top: 25vh;
-  margin-left: 20vw;
+  /* margin-left: 20vw; */
 
   color: #c27e00;
 }
@@ -240,6 +240,8 @@ body {
   font-style: italic;
   font-size: 1.25vw;
   margin-bottom: -2vh;
+
+  text-transform: uppercase;
 
   color: #bf7c00;
 }

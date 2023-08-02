@@ -128,9 +128,9 @@ export default function DialogField(props) {
                 fontFamily: 'Right Serif',
                 fontWeight: "bold",
                 fontStyle: "italic",
-                color: "white",
+                color: "#6298FE",
                 borderRadius: "1vw",
-                borderColor: "white"
+                borderColor: "",
             }}>
                 Edit
             </Button>

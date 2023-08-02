@@ -35,7 +35,7 @@ export default function GridData(props) {
       <Grid key={data.name} xs={4}>
           <Item sx={{backgroundColor: "black"}}>
             <h2 id="dataKey">{data.name}</h2>
-            <ItemData props={data.data}></ItemData>
+            <ItemData props={data}></ItemData>
           </Item>
         </Grid>
     </>

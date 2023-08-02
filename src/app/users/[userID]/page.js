@@ -3,9 +3,14 @@
 import { useAtom } from 'jotai'
 import userData from './UserData'
 
-import buildingIcon from '../../../../public/buildingIcon.png'
-import contractIcon from '../../../../public/contractIcon.png'
-import editIcon from '../../../../public/editIcon.svg'
+import buildingIcon from '../../../../public/building.png'
+import contractIcon from '../../../../public/contract.png'
+import editIcon from '../../../../public/editIcon.png'
+import resumeIcon from '../../../../public/resume.png'
+import diplomaIcon from '../../../../public/diploma.png'
+import transcriptIcon from '../../../../public/school.png'
+import linkedInIcon from '../../../../public/linkedin.png'
+
 import ColumnBox from './ColumnBox'
 import RowBox from './RowBox'
 
@@ -18,6 +23,7 @@ import LeadershipExperiences from './LeadershipExperiences'
 import WorkExperiences from './WorkExperiences'
 import DescriptionBox from './DescriptionBox'
 import DialogField from './DialogField'
+import { Button } from '@mui/material'
 
 export default function Page({ params }) {
 
@@ -284,11 +290,11 @@ export default function Page({ params }) {
                 <ColumnBox name="Leadership, Involvement" icon={contractIcon} link={`/users/${params.userID}/leadershipExperience`}></ColumnBox>
             </div>
             <div id="row-container">
-                <RowBox name="Resume" icon={editIcon} link={userDataJSON.resumeLink}></RowBox>
+                <RowBox name="Resume" icon={resumeIcon} link={userDataJSON.resumeLink}></RowBox>
                 <RowBox name="Artifact Hub" icon={editIcon} link="/"></RowBox>
-                <RowBox name="Diploma" icon={editIcon} link={userDataJSON.diplomaLink}></RowBox>
-                <RowBox name="Transcript" icon={editIcon} link={userDataJSON.transcriptLink}></RowBox>
-                <RowBox name="LinkedIn" icon={editIcon} link={userDataJSON.linkedInLink}></RowBox>
+                <RowBox name="Diploma" icon={diplomaIcon} link={userDataJSON.diplomaLink}></RowBox>
+                <RowBox name="Transcript" icon={transcriptIcon} link={userDataJSON.transcriptLink}></RowBox>
+                <RowBox name="LinkedIn" icon={linkedInIcon} link={userDataJSON.linkedInLink}></RowBox>
             </div>
 
             <div id="experiences-container">

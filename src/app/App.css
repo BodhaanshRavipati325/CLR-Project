@@ -23,7 +23,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #F5DEB3;
   color: white;
   font-family: 'Right Serif';
 
@@ -38,10 +38,12 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 8vw;
+
+  color: #c27e00;
 }
 
 #update-text {
-  color: rgb(178, 178, 178);
+  color: #C2881E;
   position: absolute;
   font-family: 'Right Serif';
   font-style: italic;
@@ -69,6 +71,8 @@ body {
 
   margin-top: 25vh;
   margin-left: 20vw;
+
+  color: #c27e00;
 }
 
 #key {
@@ -112,8 +116,9 @@ body {
 
 #column-box {
   border-radius: 10px;
-  border-color: white;
+  border-color: #C2881E;
   border-style: solid;
+  border-width: 0.25vw;
 
   width: 20%;
   height: 25vh;
@@ -132,6 +137,8 @@ body {
   font-family: 'Right Serif';
   font-weight: bold;
   font-size: 2vw;
+
+  color: #bf7c00;
 }
 
 :link {
@@ -147,15 +154,18 @@ body {
   padding-top: 12px;
 
   margin-top: 2vh;
-  color: white;
+  /* color: #C58C20; */
 
   border-radius: 1vw;
-  border-color: white;
+  /* border-color: #C2881E; */
   border-style: solid;
+  border-width: 0.25vw;
 
   font-family: 'Right Serif';
   font-style: italic;
   font-size: 1.25vw;
+
+  color: #6298FE;
 }
 
 #column-link > p {
@@ -181,8 +191,9 @@ body {
   margin-left: 2vw;
 
   border-radius: 1vw;
-  border-color: white;
+  border-color: #6298FE;
   border-style: solid;
+  border-width: 0.25vw;
 }
 
 #row-header {
@@ -195,7 +206,7 @@ body {
   font-size: 1.5vw;
   width: 10vw;
 
-  color: white;
+  color: #6298FE;
 }
 
 #education-experiences {
@@ -229,6 +240,8 @@ body {
   font-style: italic;
   font-size: 1.25vw;
   margin-bottom: -2vh;
+
+  color: #bf7c00;
 }
 
 #header-description {
@@ -239,6 +252,8 @@ body {
   font-weight: normal;
   font-size: 1vw;
   margin-top: 2.5vh;
+
+  color: #C2881E;
 }
 
 
@@ -249,8 +264,9 @@ body {
   flex-direction: row;
 
   border-radius: 1vw;
-  border-color: white;
+  border-color: #C2881E;
   border-style: solid;
+  border-width: 0.25vw;
 
   width: 19.5vw;
   
@@ -262,12 +278,14 @@ body {
 }
 
 #profile-picture {
-  margin-top: 2vh;
+  margin-top: 1.25vh;
   margin-left: 0.5vw;
 }
 
 #profile-info-container {
   margin-left: 1vw;
+  font-style: italic;
+  color: #0154EF;
 }
 
 #header-container {
@@ -320,8 +338,9 @@ body {
 
 #description-box {
   border-radius: 1vw;
-  border-color: white;
+  border-color: #C2881E;
   border-style: solid;
+  border-width: 0.25vw;
 
   width: 20vw;
   height: 25vh;
@@ -337,15 +356,21 @@ body {
   font-size: 2vw;
   margin-top: -0.25%;
   margin-left: 1vw;
+
+  color: #c27e00;
 }
 
 #description-section {
   font-family: 'Right Serif';
   font-size: 1.25vw;
+  font-weight: normal;
+
   position: relative;
   margin-top: -2vh;
   margin-left: 1vw;
-  width: 25vw;
+  width: 18vw;
+
+  color: #C2881E;
 }
 
 #edits-container {

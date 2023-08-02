@@ -1,5 +1,3 @@
-"use client"
-
 import { width } from "@mui/system";
 import styled from "@mui/system/styled";
 

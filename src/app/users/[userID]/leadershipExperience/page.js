@@ -66,7 +66,7 @@ export default function Page() {
                 </Button>
             </a>
 
-            <GridData userData={userDataJSON} experience={"leadershipExperience"}></GridData>
+            <GridData userData={userDataJSON.achievements.leadership}></GridData>
         </>
     );
 }

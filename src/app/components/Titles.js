@@ -1,17 +1,8 @@
 "use client"
 
-import { Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
-
-import GridData from "./GridData";
-
-import {readUserData, writeUserData} from "../firebase"
-
-import { getDatabase, ref, onValue } from "firebase/database";
-import SignInPage from "./SignInPage";
 import { useAuth } from "@clerk/nextjs";
-import {NextResponse } from "next/server";
 import { redirect } from 'next/navigation';
+import SignInPage from "./SignInPage";
 
 export default function Titles() {
   var today = new Date();
@@ -34,7 +25,7 @@ export default function Titles() {
 
   return (
     <>
-      {(!userId) ? <div style={{position: "absolute", marginLeft: "35%", marginTop: "18%"}}><SignInPage></SignInPage></div> : redirect(`/users/${userId}`)}
+      {(!userId) ? <SignInPage></SignInPage> : redirect(`/users/${userId}`)}
     </>
   );
 }

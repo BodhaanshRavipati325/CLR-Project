@@ -1,33 +1,13 @@
-"use client"
-
 import Box from "@mui/system/Box";
 import Grid from "@mui/system/Unstable_Grid";
-import * as React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import ItemData from "./ItemData";
 
 import Item from "./Item";
-import { useAtom } from "jotai";
-import userData from "../users/[userID]/UserData";
 
 export default function GridData(props) {
-  const [userDataJSON, setUserDataJSON] = useAtom(userData);
 
   let list = <></>;
-  let achievementData = {};
-  
-  switch (props.experience) {
-    case "educationalExperience":
-        achievementData = userDataJSON.achievements.education
-      break;
-    case "professionalExperience":
-      achievementData = userDataJSON.achievements.professional
-      break;
-    case "leadershipExperience":
-      achievementData = userDataJSON.achievements.leadership
-      break;
-  }
+  let achievementData = props.data;
 
   try {
   list = achievementData.map((data) => (
@@ -42,7 +22,7 @@ export default function GridData(props) {
   ));
   }
   catch (e) {
-    console.log("Error Loading Achievements: ", userDataJSON)
+    console.log("Error Loading Achievements: ", props.data)
   }
 
   return (

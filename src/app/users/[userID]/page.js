@@ -5,11 +5,11 @@ import userData from './UserData'
 
 import buildingIcon from '../../../../public/building.png'
 import contractIcon from '../../../../public/contract.png'
-import editIcon from '../../../../public/editIcon.png'
-import resumeIcon from '../../../../public/resume.png'
 import diplomaIcon from '../../../../public/diploma.png'
-import transcriptIcon from '../../../../public/school.png'
+import editIcon from '../../../../public/editIcon.png'
 import linkedInIcon from '../../../../public/linkedin.png'
+import resumeIcon from '../../../../public/resume.png'
+import transcriptIcon from '../../../../public/school.png'
 
 import ColumnBox from './ColumnBox'
 import RowBox from './RowBox'
@@ -18,12 +18,11 @@ import UserSettings from '@/app/components/UserButton'
 import { child, get, getDatabase, ref } from "firebase/database"
 import { useEffect } from "react"
 import { writeUserData } from "../../firebase"
+import DescriptionBox from './DescriptionBox'
+import DialogField from './DialogField'
 import EducationExperiences from './EducationExperiences'
 import LeadershipExperiences from './LeadershipExperiences'
 import WorkExperiences from './WorkExperiences'
-import DescriptionBox from './DescriptionBox'
-import DialogField from './DialogField'
-import { Button } from '@mui/material'
 
 export default function Page({ params }) {
 

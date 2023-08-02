@@ -3,8 +3,6 @@
 import { Button } from "@mui/material";
 
 import GridData from "../../../components/GridData";
-import ProgressLine from "../../../components/ProgressBar";
-import UserSettings from "../../../components/UserButton";
 
 import { useAtom } from "jotai";
 import userData from "../UserData";
@@ -66,7 +64,7 @@ export default function Page() {
                 </Button>
             </a>
 
-            <GridData userData={userDataJSON} experience="professionalExperience"></GridData>
+            <GridData userData={userDataJSON.achievements.professional}></GridData>
         </>
     );
 }

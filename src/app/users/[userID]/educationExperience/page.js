@@ -4,11 +4,10 @@ import { Button } from "@mui/material";
 
 import GridData from "../../../components/GridData";
 import ProgressLine from "../../../components/ProgressBar";
-import UserSettings from "../../../components/UserButton";
 
 import { useAtom } from "jotai";
-import userData from "../UserData";
 import Link from "next/link";
+import userData from "../UserData";
 
 export default function Page() {
     var today = new Date();
@@ -80,7 +79,7 @@ export default function Page() {
                 />
             </div>
 
-            <GridData userData={userDataJSON} experience={"educationalExperience"}></GridData>
+            <GridData data={userDataJSON.achievements.education}></GridData>
         </>
     );
 }

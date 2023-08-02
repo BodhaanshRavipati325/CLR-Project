@@ -1,17 +1,14 @@
-import * as React from "react";
+import { writeUserDataJSON } from "@/app/firebase";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { readUserDataA, writeUserData, writeUserDataJSON } from "@/app/firebase";
+import TextField from "@mui/material/TextField";
 import { useAtom } from "jotai";
-import userData from "./UserData";
 import { useRouter } from "next/navigation";
-import { get } from "firebase/database";
-import { color } from "@mui/system";
+import * as React from "react";
+import userData from "./UserData";
 
 export default function DialogField(props) {
     const [open, setOpen] = React.useState(false);

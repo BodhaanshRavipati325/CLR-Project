@@ -1,3 +1,4 @@
+import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 let userData = atomWithStorage('userData', {
@@ -107,7 +108,19 @@ let userData = atomWithStorage('userData', {
                 }]
             }
         ]
-    }
+    },
+    "artifactHub": [
+        {
+            "id": "",
+            "name": "e3e3e",
+            "description": "",
+            "imageLink": ""
+        }
+    ]
 });
 
-export default userData;
+let userID = atomWithStorage('userID', {"userID": ""});
+
+export default {};
+
+export {userData, userID};

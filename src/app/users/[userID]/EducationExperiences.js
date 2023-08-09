@@ -2,7 +2,7 @@
 
 import { useAtom } from 'jotai';
 import React from 'react'
-import userData from './UserData';
+import {userData} from './UserData';
 
 export default function LeadershipExperiences() {
     

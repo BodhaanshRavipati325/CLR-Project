@@ -1,7 +1,7 @@
 "use client"
 
-import { useAtom } from 'jotai'
-import userData from './UserData'
+import { atom, useAtom } from 'jotai'
+import {userData, userID} from './UserData'
 
 import buildingIcon from '../../../../public/building.png'
 import contractIcon from '../../../../public/contract.png'
@@ -32,7 +32,10 @@ export default function Page({ params }) {
     const [userDataJSON, setUserDataJSON] = useAtom(userData);
     const [resumeURL, setResumeURL] = useState("");
 
+    const [userIDAtom, setUserIDAtom] = useAtom(userID);
+
     useEffect(() => {
+
         const dbRef = ref(getDatabase());
 
         get(child(dbRef, `/users/${params.userID}`))
@@ -148,7 +151,15 @@ export default function Page({ params }) {
                                     }]
                                 }
                             ]
-                        }
+                        },
+                        "artifactHub": [
+                            {
+                                "id": "",
+                                "name": "e3e3e",
+                                "description": "",
+                                "imageLink": ""
+                            }
+                        ]
                     });
                     setUserDataJSON({
                         "user": "",
@@ -257,7 +268,15 @@ export default function Page({ params }) {
                                     }]
                                 }
                             ]
-                        }
+                        },
+                        "artifactHub": [
+                            {
+                                "id": "",
+                                "name": "e3e3e",
+                                "description": "",
+                                "imageLink": ""
+                            }
+                        ]
                     });
                 }
             })
@@ -303,7 +322,7 @@ export default function Page({ params }) {
             </div>
             <div id="row-container">
                 <RowBox name="Resume" icon={resumeIcon} link={resumeURL}></RowBox>
-                <RowBox name="Artifact Hub" icon={editIcon} link="/"></RowBox>
+                <RowBox name="Artifact Hub" icon={editIcon} link={`/users/${params.userID}/artifactHub`}></RowBox>
                 <RowBox name="Diploma" icon={diplomaIcon} link={userDataJSON.diplomaLink}></RowBox>
                 <RowBox name="Transcript" icon={transcriptIcon} link={userDataJSON.transcriptLink}></RowBox>
                 <RowBox name="LinkedIn" icon={linkedInIcon} link={userDataJSON.linkedInLink}></RowBox>

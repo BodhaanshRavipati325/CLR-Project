@@ -16,17 +16,21 @@ import RowBox from './RowBox'
 
 import UserSettings from '@/app/components/UserButton'
 import { child, get, getDatabase, ref } from "firebase/database"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { writeUserData } from "../../firebase"
 import DescriptionBox from './DescriptionBox'
 import DialogField from './DialogField'
 import EducationExperiences from './EducationExperiences'
 import LeadershipExperiences from './LeadershipExperiences'
 import WorkExperiences from './WorkExperiences'
+import UploadButton from './UploadButton'
+
+import { getDownloadURL, getStorage, ref as storageRef, uploadBytes } from "firebase/storage";
 
 export default function Page({ params }) {
 
     const [userDataJSON, setUserDataJSON] = useAtom(userData);
+    const [resumeURL, setResumeURL] = useState("");
 
     useEffect(() => {
         const dbRef = ref(getDatabase());
@@ -261,11 +265,20 @@ export default function Page({ params }) {
                 console.error(error);
             });
 
+        getDownloadURL(storageRef(getStorage(), `resumes/${params.userID}`))
+            .then((url) => {
+                setResumeURL(url);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
         return;
     }, []);
 
     return (
         <>
+            <UploadButton path={`resumes/${params.userID}`} state={setResumeURL}></UploadButton>
             <div id="edits-container">
                 <DialogField experience="educationalExperience" userID={params.userID}>eee</DialogField>
                 <DialogField experience="professionalExperience" userID={params.userID}>eee</DialogField>
@@ -289,7 +302,7 @@ export default function Page({ params }) {
                 <ColumnBox name="Leadership, Involvement" icon={contractIcon} link={`/users/${params.userID}/leadershipExperience`}></ColumnBox>
             </div>
             <div id="row-container">
-                <RowBox name="Resume" icon={resumeIcon} link={userDataJSON.resumeLink}></RowBox>
+                <RowBox name="Resume" icon={resumeIcon} link={resumeURL}></RowBox>
                 <RowBox name="Artifact Hub" icon={editIcon} link="/"></RowBox>
                 <RowBox name="Diploma" icon={diplomaIcon} link={userDataJSON.diplomaLink}></RowBox>
                 <RowBox name="Transcript" icon={transcriptIcon} link={userDataJSON.transcriptLink}></RowBox>

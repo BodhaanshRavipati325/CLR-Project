@@ -4,6 +4,8 @@ import { getAnalytics, isSupported } from "firebase/analytics";
 import { getDatabase, ref, set, onValue, child, get } from "firebase/database";
 import { useEffect } from "react";
 
+import { getStorage, ref as storageRef, uploadBytes } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,6 +20,7 @@ const firebaseConfig = {
   appId: "1:795885607945:web:ebd3d5662fffcf3097acd8",
   measurementId: "G-KRZ038HLWT",
   databaseURL: "https://clr-project-d126e-default-rtdb.firebaseio.com",
+  storageBucket: "gs://clr-project-d126e.appspot.com"
 };
 
 // Initialize Firebase
@@ -25,6 +28,9 @@ const app = initializeApp(firebaseConfig);
 const analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null));
 
 const db = getDatabase(app);
+
+const storage = getStorage(app);
+const mRef = storageRef(storage, 'some-child');
 
 async function writeUserData(userId, data) {
   set(ref(db, "users/" + userId), data);

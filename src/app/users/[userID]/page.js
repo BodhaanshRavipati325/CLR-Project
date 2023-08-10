@@ -30,9 +30,7 @@ import { getDownloadURL, getStorage, ref as storageRef, uploadBytes } from "fire
 export default function Page({ params }) {
 
     const [userDataJSON, setUserDataJSON] = useAtom(userData);
-    const [resumeURL, setResumeURL] = useState("");
-
-    const [userIDAtom, setUserIDAtom] = useAtom(userID);
+    const [resumeURL, setResumeURL] = useState("/");
 
     useEffect(() => {
 

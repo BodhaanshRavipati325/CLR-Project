@@ -7,9 +7,14 @@ function UploadButton(props) {
 
   function handleChange(event) {
     setFile(event.target.files[0])
+    props.state(event.target.files[0]);
+    uploadBytes(ref(getStorage(), props.path), file).then((snapshot) => {
+      console.log("test");
+    })
   }
   
   function handleSubmit(event) {
+    // event.preventDefault();
     uploadBytes(ref(getStorage(), props.path), file).then((snapshot) => {
       props.state(snapshot);
       console.log("test");

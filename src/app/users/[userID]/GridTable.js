@@ -19,57 +19,10 @@ import { child, get, getDatabase, ref } from 'firebase/database';
 import { useAtom } from 'jotai';
 import { useRouter } from "next/navigation";
 import * as React from 'react';
+import UploadButton from './UploadButton';
 import userData from './UserData';
 
-const roles = ['Market', 'Finance', 'Development'];
-const randomRole = () => {
-  return randomArrayItem(roles);
-};
-
-const initialRows = [
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 25,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 36,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 19,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 28,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 23,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-];
-
-// interface EditToolbarProps {
-//   setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
-//   setRowModesModel: (
-//     newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
-//   ) => void;
-// }
+import { getDownloadURL, getStorage, ref as storageRef } from "firebase/storage"
 
 function EditToolbar(props) {
   const { setRows, setRowModesModel } = props;
@@ -92,7 +45,7 @@ function EditToolbar(props) {
   );
 }
 
-export default function GridTable({ params }) {
+export default function GridTable() {
 
   const [userDataJSON, setUserDataJSON] = useAtom(userData);
 
@@ -103,8 +56,6 @@ export default function GridTable({ params }) {
 
   const { isLoaded, userId, sessionId, getToken } = useAuth();
   let userID = userId;
-
-  const { push } = useRouter();
 
   React.useEffect(() => {
 
@@ -147,8 +98,6 @@ export default function GridTable({ params }) {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
 
     console.log(rows);
-
-    // push('/');
   };
 
   const handleDeleteClick = (id) => () => {
@@ -180,36 +129,12 @@ export default function GridTable({ params }) {
   const columns = [
     { field: 'name', headerName: 'Name', width: 180, editable: true },
     { field: 'description', headerName: 'Description', width: 180, editable: true },
-    { field: 'imageLink', headerName: 'Image', width: 180, editable: true },
-    // {
-    //   field: 'age',
-    //   headerName: 'Age',
-    //   type: 'number',
-    //   width: 80,
-    //   align: 'left',
-    //   headerAlign: 'left',
-    //   editable: true,
-    // },
-    // {
-    //   field: 'joinDate',
-    //   headerName: 'Join date',
-    //   type: 'date',
-    //   width: 180,
-    //   editable: true,
-    // },
-    // {
-    //   field: 'role',
-    //   headerName: 'Department',
-    //   width: 220,
-    //   editable: true,
-    //   type: 'singleSelect',
-    //   valueOptions: ['Market', 'Finance', 'Development'],
-    // },
+    { field: 'imageLink', headerName: 'Image', width: 160, editable: true },
     {
       field: 'actions',
       type: 'actions',
       headerName: 'Actions',
-      width: 100,
+      width: 180,
       cellClassName: 'actions',
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
@@ -255,13 +180,59 @@ export default function GridTable({ params }) {
         ];
       },
     },
+    {
+      field: 'upload',
+      type: 'actions',
+      headerName: 'Upload',
+      width: 160,
+      cellClassName: 'actions',
+      getActions: ({ id }) => {
+
+        const [image, setImage] = React.useState("");
+        const [imageLink, setImageLink] = React.useState("");
+
+        let path = `/users/${userID}/artifactHub/${id}/imageLink`
+
+        React.useEffect(() => {
+          for (let i = 0; i < rows.length; i++) {
+            if (rows[i].id == id) {
+              getDownloadURL(storageRef(getStorage(), path))
+              .then((url) => {
+                setImageLink(url);
+              writeUserDataJSON(`/users/${userID}/artifactHub/${i}/imageLink`, url);
+              // console.log(imageLink);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+
+              // if (rows[i].imageLink == "") {
+              //   setImageLink(rows[i].imageLink);
+              // }
+              
+
+
+
+            }
+          }
+
+          return;
+        }, [image, rows]);
+
+        return [
+          <div style={{ marginTop: "-27vh", marginLeft: "-30vw" }}>
+            <UploadButton path={path} state={setImage}></UploadButton>
+          </div>
+        ];
+      },
+    },
   ];
 
   return (
     <Box
       sx={{
         height: 500,
-        width: '60%',
+        width: '64%',
         '& .actions': {
           color: 'text.secondary',
         },
@@ -269,7 +240,7 @@ export default function GridTable({ params }) {
           color: 'text.primary',
         },
         marginTop: '8%',
-        marginLeft: '20%'
+        marginLeft: '18%'
       }}
     >
       <DataGrid

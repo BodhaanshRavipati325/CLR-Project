@@ -121,6 +121,4 @@ let userData = atomWithStorage('userData', {
 
 let userID = atomWithStorage('userID', {"userID": ""});
 
-export default {};
-
-export {userData, userID};
+export default userData;

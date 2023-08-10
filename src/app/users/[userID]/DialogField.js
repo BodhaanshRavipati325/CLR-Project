@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import * as React from "react";
-import {userData} from "./UserData";
+import userData from './UserData'
 
 export default function DialogField(props) {
     const [open, setOpen] = React.useState(false);

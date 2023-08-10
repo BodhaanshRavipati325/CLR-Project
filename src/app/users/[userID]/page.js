@@ -1,7 +1,6 @@
 "use client"
 
-import { atom, useAtom } from 'jotai'
-import {userData, userID} from './UserData'
+import { useAtom } from 'jotai'
 
 import buildingIcon from '../../../../public/building.png'
 import contractIcon from '../../../../public/contract.png'
@@ -22,10 +21,11 @@ import DescriptionBox from './DescriptionBox'
 import DialogField from './DialogField'
 import EducationExperiences from './EducationExperiences'
 import LeadershipExperiences from './LeadershipExperiences'
-import WorkExperiences from './WorkExperiences'
 import UploadButton from './UploadButton'
+import WorkExperiences from './WorkExperiences'
 
-import { getDownloadURL, getStorage, ref as storageRef, uploadBytes } from "firebase/storage";
+import { getDownloadURL, getStorage, ref as storageRef } from "firebase/storage"
+import userData from './UserData'
 
 export default function Page({ params }) {
 

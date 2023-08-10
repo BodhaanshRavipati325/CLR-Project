@@ -28,7 +28,7 @@ import {
   randomArrayItem,
 } from '@mui/x-data-grid-generator';
 import { useAtom } from 'jotai';
-import { userData, userID } from './UserData';
+import userData from './UserData'
 import { child, get, getDatabase, ref } from 'firebase/database';
 import { writeUserData, writeUserDataJSON } from '@/app/firebase';
 import { useRouter } from "next/navigation";

@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Titles from "./components/Titles";
 import styles from "./page.module.css";

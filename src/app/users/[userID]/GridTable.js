@@ -1,38 +1,25 @@
 'use client'
 
-import * as React from 'react';
+import { writeUserDataJSON } from '@/app/firebase';
+import { useAuth } from '@clerk/nextjs';
+import AddIcon from '@mui/icons-material/Add';
+import CancelIcon from '@mui/icons-material/Close';
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import CancelIcon from '@mui/icons-material/Close';
 import {
-  GridRowsProp,
-  GridRowModesModel,
-  GridRowModes,
-  DataGrid,
-  GridColDef,
-  GridToolbarContainer,
-  GridActionsCellItem,
-  GridEventListener,
-  GridRowId,
-  GridRowModel,
-  GridRowEditStopReasons,
+  DataGrid, GridActionsCellItem, GridRowEditStopReasons, GridRowModes, GridToolbarContainer
 } from '@mui/x-data-grid';
 import {
-  randomCreatedDate,
-  randomTraderName,
-  randomId,
-  randomArrayItem,
+  randomArrayItem, randomCreatedDate, randomId, randomTraderName
 } from '@mui/x-data-grid-generator';
-import { useAtom } from 'jotai';
-import userData from './UserData'
 import { child, get, getDatabase, ref } from 'firebase/database';
-import { writeUserData, writeUserDataJSON } from '@/app/firebase';
+import { useAtom } from 'jotai';
 import { useRouter } from "next/navigation";
-import { useAuth } from '@clerk/nextjs';
+import * as React from 'react';
+import userData from './UserData';
 
 const roles = ['Market', 'Finance', 'Development'];
 const randomRole = () => {

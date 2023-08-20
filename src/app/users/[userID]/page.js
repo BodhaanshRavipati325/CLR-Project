@@ -25,7 +25,9 @@ import UploadButton from './UploadButton'
 import WorkExperiences from './WorkExperiences'
 
 import { getDownloadURL, getStorage, ref as storageRef } from "firebase/storage"
+// import ProfileDialogField from './ProfileDialogField'
 import userData from './UserData'
+import ProfileDialogField from './ProfileDialogField'
 
 export default function Page({ params }) {
 
@@ -43,10 +45,12 @@ export default function Page({ params }) {
                     setUserDataJSON(snapshot.val());
                 } else {
                     writeUserData(params.userID, {
-                        "user": "",
-                        "university": "",
-                        "email": "",
-                        "city": "",
+                        "userData": {
+                            "user": "",
+                            "university": "",
+                            "email": "",
+                            "city": "",
+                        },
                         "degree": "",
                         "resumeLink": "/",
                         "diplomaLink": "/",
@@ -160,10 +164,12 @@ export default function Page({ params }) {
                         ]
                     });
                     setUserDataJSON({
-                        "user": "",
-                        "university": "",
-                        "email": "",
-                        "city": "",
+                        "userData": {
+                            "user": "",
+                            "university": "",
+                            "email": "",
+                            "city": "",
+                        },
                         "degree": "",
                         "resumeLink": "/",
                         "diplomaLink": "/",
@@ -295,7 +301,6 @@ export default function Page({ params }) {
 
     return (
         <>
-            <UploadButton path={`resumes/${params.userID}`} state={setResumeURL}></UploadButton>
             <div id="edits-container">
                 <DialogField experience="educationalExperience" userID={params.userID}>eee</DialogField>
                 <DialogField experience="professionalExperience" userID={params.userID}>eee</DialogField>
@@ -308,10 +313,11 @@ export default function Page({ params }) {
                         <UserSettings></UserSettings>
                     </div>
                     <div id="profile-info-container">
-                        <p>{userDataJSON.user}</p>
-                        <p>{userDataJSON.university}</p>
-                        <p>{userDataJSON.email}</p>
-                        <p>{userDataJSON.city}</p>
+                        <p>{userDataJSON.userData.user}</p>
+                        <p>{userDataJSON.userData.university}</p>
+                        <p>{userDataJSON.userData.email}</p>
+                        <p>{userDataJSON.userData.city}</p>
+                        <ProfileDialogField userID={params.userID}></ProfileDialogField>
                     </div>
                 </div>
                 <ColumnBox name="Educational Experience" icon={editIcon} link={`/users/${params.userID}/educationExperience`}></ColumnBox>
@@ -319,7 +325,9 @@ export default function Page({ params }) {
                 <ColumnBox name="Leadership, Involvement" icon={contractIcon} link={`/users/${params.userID}/leadershipExperience`}></ColumnBox>
             </div>
             <div id="row-container">
-                <RowBox name="Resume" icon={resumeIcon} link={resumeURL}></RowBox>
+                <RowBox name="Resume" icon={resumeIcon} link={resumeURL}>
+                    <UploadButton path={`resumes/${params.userID}`} state={setResumeURL}></UploadButton>
+                </RowBox>
                 <RowBox name="Artifact Hub" icon={editIcon} link={`/users/${params.userID}/artifactHub`}></RowBox>
                 <RowBox name="Diploma" icon={diplomaIcon} link={userDataJSON.diplomaLink}></RowBox>
                 <RowBox name="Transcript" icon={transcriptIcon} link={userDataJSON.transcriptLink}></RowBox>

@@ -132,7 +132,7 @@ export default function DialogField(props) {
                 Edit
             </Button>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle sx={{backgroundColor: "#c27e00", color: "white"}}>Edit Your Experiences Data</DialogTitle>
+                <DialogTitle sx={{backgroundColor: "#012269", color: "white"}}>Edit Your Experiences Data</DialogTitle>
                 <DialogContent sx={{backgroundColor: "white", overflowY: "hidden", color: "white"}}>
                     <TextField
                         autoFocus

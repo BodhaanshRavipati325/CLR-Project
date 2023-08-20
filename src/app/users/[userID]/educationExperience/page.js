@@ -32,15 +32,15 @@ export default function Page() {
         <>
             <h4 id="update-text">UPDATED {today}</h4>
 
-            <h1 id="title">{userDataJSON.user}</h1>
+            <h1 id="title">{userDataJSON.userData.user}</h1>
 
-            <h5 id="title-text">{userDataJSON.degree} , {userDataJSON.university}</h5>
+            <h5 id="title-text">{userDataJSON.userData.degree} , {userDataJSON.userData.university}</h5>
 
             <div style={{ position: "absolute", marginLeft: "44.5vw" }}>
                 <Link href="/">
                     <Button
                         sx={{
-                            color: "white",
+                            // color: "white",
                             fontFamily: "Air",
                             borderRadius: "10px",
                             borderColor: "#6298FE",

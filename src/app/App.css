@@ -84,7 +84,7 @@ body {
 #key {
   width: 100%;
   text-align: center;
-  /* color: white; */
+  color: var(--secondary-color);
 
   font-family: 'Right Serif';
   font-weight: normal;
@@ -111,6 +111,8 @@ body {
   position: absolute;
   margin-top: 10px;
 
+  color: var(--primary-color);
+
   width: 32%;
   text-align: center;
 
@@ -125,6 +127,8 @@ body {
   border-color: var(--secondary-color);
   border-style: solid;
   border-width: 0.25vw;
+  
+  background-color: var(--primary-color);
 
   width: 20%;
   height: 25vh;
@@ -144,7 +148,7 @@ body {
   font-weight: bold;
   font-size: 2vw;
 
-  color: var(--primary-color);
+  color: white;
 }
 
 :link {
@@ -171,7 +175,7 @@ body {
   font-style: italic;
   font-size: 1.25vw;
 
-  color: var(--accent-color);
+  color: var(--secondary-color);
 }
 
 #column-link > p {
@@ -184,7 +188,7 @@ body {
   display: flex;
   flex-direction: row;
 
-  margin-top: -98vh;
+  margin-top: -102vh;
   margin-left: 20vw;
 }
 
@@ -200,6 +204,8 @@ body {
   border-color: var(--primary-color);
   border-style: solid;
   border-width: 0.25vw;
+
+  background-color: var(--primary-color);
 }
 
 #row-header {
@@ -212,7 +218,7 @@ body {
   font-size: 1.5vw;
   width: 10vw;
 
-  color: var(--primary-color);
+  color: white;
 }
 
 #education-experiences {
@@ -269,7 +275,7 @@ body {
   position: relative;
   
   display: flex;
-  flex-direction: row;
+  
 
   border-radius: 1vw;
   border-color: var(--secondary-color);
@@ -291,6 +297,7 @@ body {
 }
 
 #profile-info-container {
+  position: relative;
   margin-left: 1vw;
   font-style: italic;
   color: #0154EF;
@@ -393,17 +400,17 @@ body {
 }
 
 .resume-container {
-  position: absolute;
-  margin-left: 22vw;
-  margin-top: 11vh;
+  position: relative;
+  margin-top: 4vh;
 }
 
 #file-select {
+  width: 100%;
   color: white;
   position: absolute;
   display: flex;
   flex-direction: row;
-  gap: -20vw;
+  gap: 1.5vw;
 }
 
 #select {

@@ -2,10 +2,12 @@ import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 let userData = atomWithStorage('userData', {
-    "user": "",
-    "university": "",
-    "email": "",
-    "city": "",
+    "userData": {
+        "user": "",
+        "university": "",
+        "email": "",
+        "city": "",
+    },
     "degree": "",
     "resumeLink": "/",
     "diplomaLink": "/",
@@ -119,6 +121,6 @@ let userData = atomWithStorage('userData', {
     ]
 });
 
-let userID = atomWithStorage('userID', {"userID": ""});
+let userID = atomWithStorage('userID', { "userID": "" });
 
 export default userData;

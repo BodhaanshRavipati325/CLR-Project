@@ -221,6 +221,15 @@ body {
   color: white;
 }
 
+#experiences-container {
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+
+  gap: 1.25vw;
+}
+
 #education-experiences {
   position: absolute;
   display: flex;

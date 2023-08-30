@@ -86,6 +86,13 @@ let userData = atomWithStorage('userData', {
         "education": [
             {
                 "name": "",
+                "description": "",
+                "badges": [
+                    {
+                        "name": "",
+                        "organization": ""
+                    },
+                ],
                 "data": [{
                     "name": "",
                     "color": ""
@@ -95,6 +102,13 @@ let userData = atomWithStorage('userData', {
         "professional": [
             {
                 "name": "",
+                "description": "",
+                "badges": [
+                    {
+                        "name": "",
+                        "organization": ""
+                    },
+                ],
                 "data": [{
                     "name": "",
                     "color": ""
@@ -104,12 +118,19 @@ let userData = atomWithStorage('userData', {
         "leadership": [
             {
                 "name": "",
+                "description": "",
+                "badges": [
+                    {
+                        "name": "",
+                        "organization": ""
+                    },
+                ],
                 "data": [{
                     "name": "",
                     "color": ""
                 }]
             }
-        ]
+        ],
     },
     "artifactHub": [
         {
@@ -120,7 +141,5 @@ let userData = atomWithStorage('userData', {
         }
     ]
 });
-
-let userID = atomWithStorage('userID', { "userID": "" });
 
 export default userData;

@@ -129,6 +129,13 @@ export default function Page({ params }) {
                             "education": [
                                 {
                                     "name": "",
+                                    "description": "",
+                                    "badges": [
+                                        {
+                                            "name": "",
+                                            "organization": ""
+                                        },
+                                    ],
                                     "data": [{
                                         "name": "",
                                         "color": ""
@@ -138,6 +145,13 @@ export default function Page({ params }) {
                             "professional": [
                                 {
                                     "name": "",
+                                    "description": "",
+                                    "badges": [
+                                        {
+                                            "name": "",
+                                            "organization": ""
+                                        },
+                                    ],
                                     "data": [{
                                         "name": "",
                                         "color": ""
@@ -147,12 +161,19 @@ export default function Page({ params }) {
                             "leadership": [
                                 {
                                     "name": "",
+                                    "description": "",
+                                    "badges": [
+                                        {
+                                            "name": "",
+                                            "organization": ""
+                                        },
+                                    ],
                                     "data": [{
                                         "name": "",
                                         "color": ""
                                     }]
                                 }
-                            ]
+                            ],
                         },
                         "artifactHub": [
                             {
@@ -248,6 +269,13 @@ export default function Page({ params }) {
                             "education": [
                                 {
                                     "name": "",
+                                    "description": "",
+                                    "badges": [
+                                        {
+                                            "name": "",
+                                            "organization": ""
+                                        },
+                                    ],
                                     "data": [{
                                         "name": "",
                                         "color": ""
@@ -257,6 +285,13 @@ export default function Page({ params }) {
                             "professional": [
                                 {
                                     "name": "",
+                                    "description": "",
+                                    "badges": [
+                                        {
+                                            "name": "",
+                                            "organization": ""
+                                        },
+                                    ],
                                     "data": [{
                                         "name": "",
                                         "color": ""
@@ -266,12 +301,19 @@ export default function Page({ params }) {
                             "leadership": [
                                 {
                                     "name": "",
+                                    "description": "",
+                                    "badges": [
+                                        {
+                                            "name": "",
+                                            "organization": ""
+                                        },
+                                    ],
                                     "data": [{
                                         "name": "",
                                         "color": ""
                                     }]
                                 }
-                            ]
+                            ],
                         },
                         "artifactHub": [
                             {

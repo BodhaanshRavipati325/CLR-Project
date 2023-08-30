@@ -8,6 +8,7 @@ import ProgressLine from "../../../components/ProgressBar";
 import { useAtom } from "jotai";
 import Link from "next/link";
 import userData from "../UserData";
+import ExperienceCard from "./ExperienceCard";
 
 export default function Page() {
     var today = new Date();
@@ -16,6 +17,20 @@ export default function Page() {
     var yyyy = today.getFullYear();
 
     const [userDataJSON, setUserDataJSON] = useAtom(userData);
+
+    let list = <></>;
+    let achievementData = userDataJSON.achievements.education;
+
+    try {
+        list = achievementData.map((data) => (
+            <>
+                <ExperienceCard experienceData={data}></ExperienceCard>
+            </>
+        ));
+    }
+    catch (e) {
+        console.log("Error Loading Achievements: ", props.data)
+    }
 
     today =
         mm +
@@ -30,7 +45,8 @@ export default function Page() {
 
     return (
         <>
-            <h4 id="update-text">UPDATED {today}</h4>
+            {list}
+            {/* <h4 id="update-text">UPDATED {today}</h4>
 
             <h1 id="title">{userDataJSON.userData.user}</h1>
 
@@ -79,7 +95,7 @@ export default function Page() {
                 />
             </div>
 
-            <GridData data={userDataJSON.achievements.education}></GridData>
+            <GridData data={userDataJSON.achievements.education}></GridData> */}
         </>
     );
 }

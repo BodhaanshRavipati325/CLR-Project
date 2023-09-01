@@ -24,7 +24,9 @@ export default function Page() {
     try {
         list = achievementData.map((data) => (
             <>
+                <div style={{position: "relative"}}>
                 <ExperienceCard experienceData={data}></ExperienceCard>
+                </div>
             </>
         ));
     }
@@ -45,7 +47,9 @@ export default function Page() {
 
     return (
         <>
-            {list}
+        <div style={{display: "flex", flexDirection: "column", gap: "44vh"}}>
+        {list}
+        </div>
             {/* <h4 id="update-text">UPDATED {today}</h4>
 
             <h1 id="title">{userDataJSON.userData.user}</h1>

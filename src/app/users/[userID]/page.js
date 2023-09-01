@@ -137,8 +137,9 @@ export default function Page({ params }) {
                                         },
                                     ],
                                     "data": [{
-                                        "name": "",
-                                        "color": ""
+                                        "class": "",
+                                        "grade": "",
+                                        "term": "",
                                     }]
                                 }
                             ],
@@ -277,8 +278,9 @@ export default function Page({ params }) {
                                         },
                                     ],
                                     "data": [{
-                                        "name": "",
-                                        "color": ""
+                                        "class": "",
+                                        "grade": "",
+                                        "term": "",
                                     }]
                                 }
                             ],

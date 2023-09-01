@@ -94,8 +94,9 @@ let userData = atomWithStorage('userData', {
                     },
                 ],
                 "data": [{
-                    "name": "",
-                    "color": ""
+                    "class": "",
+                    "grade": "",
+                    "term": "",
                 }]
             }
         ],

@@ -32,7 +32,9 @@ import ProfileDialogField from './ProfileDialogField'
 export default function Page({ params }) {
 
     const [userDataJSON, setUserDataJSON] = useAtom(userData);
+
     const [resumeURL, setResumeURL] = useState("/");
+    const [diplomaURL, setDiplomaURL] = useState("/");
 
     useEffect(() => {
 
@@ -340,6 +342,14 @@ export default function Page({ params }) {
                 console.log(error);
             });
 
+        getDownloadURL(storageRef(getStorage(), `diplomas/${params.userID}`))
+            .then((url) => {
+                setDiplomaURL(url);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
         return;
     }, []);
 
@@ -352,11 +362,11 @@ export default function Page({ params }) {
             </div>
 
             <div id="column-container">
-                <div id="profile-container">
+                <div id="profile-container" style={{backgroundColor: "#012269"}}>
                     <div id="profile-picture">
                         <UserSettings></UserSettings>
                     </div>
-                    <div id="profile-info-container">
+                    <div id="profile-info-container" style={{color: "white"}}>
                         <p>{userDataJSON.userData.user}</p>
                         <p>{userDataJSON.userData.university}</p>
                         <p>{userDataJSON.userData.email}</p>
@@ -372,8 +382,11 @@ export default function Page({ params }) {
                 <RowBox name="Resume" icon={resumeIcon} link={resumeURL}>
                     <UploadButton path={`resumes/${params.userID}`} state={setResumeURL}></UploadButton>
                 </RowBox>
-                <RowBox name="Artifact Hub" icon={editIcon} link={`/users/${params.userID}/artifactHub`}></RowBox>
-                <RowBox name="Diploma" icon={diplomaIcon} link={userDataJSON.diplomaLink}></RowBox>
+                <RowBox name="Artifact Hub" icon={editIcon} link={`/users/${params.userID}/artifactHub`}>
+                </RowBox>
+                <RowBox name="Diploma" icon={diplomaIcon} link={diplomaURL}>
+                    <UploadButton path={`diplomas/${params.userID}`} state={setDiplomaURL}></UploadButton>
+                </RowBox>
                 <RowBox name="Transcript" icon={transcriptIcon} link={userDataJSON.transcriptLink}></RowBox>
                 <RowBox name="LinkedIn" icon={linkedInIcon} link={userDataJSON.linkedInLink}></RowBox>
             </div>

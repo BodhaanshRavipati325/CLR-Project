@@ -1,5 +1,10 @@
 {
   "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
-  "/[userID]/page": "/[userID]"
+  "/admin/page": "/admin",
+  "/users/[userID]/page": "/users/[userID]",
+  "/users/[userID]/leadershipExperience/page": "/users/[userID]/leadershipExperience",
+  "/users/[userID]/workExperience/page": "/users/[userID]/workExperience",
+  "/users/[userID]/artifactHub/page": "/users/[userID]/artifactHub",
+  "/users/[userID]/educationExperience/page": "/users/[userID]/educationExperience"
 }

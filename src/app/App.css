@@ -381,7 +381,7 @@ body {
   margin-top: -0.25%;
   margin-left: 1vw;
 
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 #description-section {
@@ -394,7 +394,7 @@ body {
   margin-left: 1vw;
   width: 18vw;
 
-  color: var(--secondary-color);
+  color: "white";
 }
 
 #edits-container {

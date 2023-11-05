@@ -21,7 +21,7 @@ export default function DescriptionBox(props) {
       }
 
   return (
-    <div id="description-box">
+    <div id="description-box" style={{backgroundColor: "#012269"}}>
         <h2 id="description-title">Description</h2>
         <h2 id="description-section">{description}</h2>
     </div>

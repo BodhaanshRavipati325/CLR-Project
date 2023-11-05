@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { fontStyle } from '@mui/system';
 
 function createData(
   name,
@@ -27,13 +28,15 @@ function createData(
 
 export default function TranscriptTable(props) {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <TableContainer component={Paper} style={{backgroundColor:"#012269"}}>
+      <Table sx={{ minWidth: 650}} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Course</TableCell>
-            <TableCell align="right">Grade</TableCell>
-            <TableCell align="right">Term</TableCell>
+            <TableCell sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>Course</TableCell>
+            <TableCell align="right" sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>Grade</TableCell>
+            <TableCell align="right" sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>Concentration</TableCell>
+            <TableCell align="right" sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>Term</TableCell>
+
             {/* <TableCell align="right">Fat&nbsp;(g)</TableCell>
             <TableCell align="right">Carbs&nbsp;(g)</TableCell>
             <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
@@ -45,12 +48,13 @@ export default function TranscriptTable(props) {
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>
                 {row.class}
                 {/* {row.name} */}
               </TableCell>
-              <TableCell align="right">{row.grade}</TableCell>
-              <TableCell align="right">{row.term}</TableCell>
+              <TableCell align="right" sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>{row.grade}</TableCell>
+              <TableCell align="right" sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>Economics</TableCell>
+              <TableCell align="right" sx={{color: "white", fontFamily: "Right Serif", textTransform: "uppercase", fontStyle: "italic"}}>{row.term}</TableCell>
               {/* <TableCell align="right">{row.fat}</TableCell>
               <TableCell align="right">{row.carbs}</TableCell>
               <TableCell align="right">{row.protein}</TableCell> */}

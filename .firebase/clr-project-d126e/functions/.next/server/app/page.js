@@ -188,14 +188,6 @@ module.exports = require("next/dist/shared/lib/utils/warn-once");
 
 /***/ }),
 
-/***/ 39491:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("assert");
-
-/***/ }),
-
 /***/ 14300:
 /***/ ((module) => {
 
@@ -212,19 +204,107 @@ module.exports = require("crypto");
 
 /***/ }),
 
-/***/ 82361:
+/***/ 72254:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("events");
+module.exports = require("node:buffer");
 
 /***/ }),
 
-/***/ 41808:
+/***/ 6005:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("net");
+module.exports = require("node:crypto");
+
+/***/ }),
+
+/***/ 87561:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:fs");
+
+/***/ }),
+
+/***/ 88849:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:http");
+
+/***/ }),
+
+/***/ 22286:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:https");
+
+/***/ }),
+
+/***/ 87503:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:net");
+
+/***/ }),
+
+/***/ 49411:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:path");
+
+/***/ }),
+
+/***/ 97742:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:process");
+
+/***/ }),
+
+/***/ 84492:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:stream");
+
+/***/ }),
+
+/***/ 72477:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:stream/web");
+
+/***/ }),
+
+/***/ 41041:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:url");
+
+/***/ }),
+
+/***/ 47261:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:util");
+
+/***/ }),
+
+/***/ 65628:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:zlib");
 
 /***/ }),
 
@@ -236,19 +316,11 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 12781:
+/***/ 77282:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("stream");
-
-/***/ }),
-
-/***/ 24404:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("tls");
+module.exports = require("process");
 
 /***/ }),
 
@@ -260,11 +332,11 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 73837:
+/***/ 71267:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("util");
+module.exports = require("worker_threads");
 
 /***/ }),
 
@@ -298,7 +370,7 @@ __webpack_require__.r(__webpack_exports__);
         '',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 87170)), "/Users/bodhaanshravipati/clr-project/my-app/src/app/page.js"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 68282)), "/Users/bodhaanshravipati/clr-project/my-app/src/app/page.js"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 73881))).default(props))],
     apple: [],
@@ -345,14 +417,76 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 11959:
+/***/ 81275:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 94700))
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 73380, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 54827))
 
 /***/ }),
 
-/***/ 94700:
+/***/ 54827:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ Titles)
+});
+
+// EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(56786);
+// EXTERNAL MODULE: ./node_modules/@clerk/clerk-react/dist/esm/index.js + 54 modules
+var esm = __webpack_require__(64470);
+// EXTERNAL MODULE: ./node_modules/next/navigation.js
+var navigation = __webpack_require__(57114);
+// EXTERNAL MODULE: ./node_modules/@clerk/nextjs/dist/esm/client-boundary/uiComponents.js
+var uiComponents = __webpack_require__(54390);
+;// CONCATENATED MODULE: ./src/app/components/SignInPage.js
+
+
+function SignInPage() {
+    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
+        style: {
+            position: "relative",
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "29.5vh"
+        },
+        children: /*#__PURE__*/ jsx_runtime_.jsx(uiComponents.SignIn, {
+            afterSignInUrl: "/"
+        })
+    });
+}
+
+;// CONCATENATED MODULE: ./src/app/components/Titles.js
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+function Titles() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+    const { isLoaded, userId, sessionId, getToken } = (0,esm/* useAuth */.aC)();
+    today = mm + "/" + dd + "/" + yyyy + " at " + today.getHours() + ":" + today.getMinutes();
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: !userId ? /*#__PURE__*/ jsx_runtime_.jsx(SignInPage, {}) : (0,navigation.redirect)(`/users/${userId}`)
+    });
+}
+
+
+/***/ }),
+
+/***/ 68282:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -367,168 +501,12 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(56786);
 // EXTERNAL MODULE: ./node_modules/next/image.js
-var next_image = __webpack_require__(52451);
-// EXTERNAL MODULE: ./node_modules/@mui/material/node/index.js
-var node = __webpack_require__(17421);
-// EXTERNAL MODULE: external "next/dist/compiled/react"
-var react_ = __webpack_require__(18038);
-// EXTERNAL MODULE: ../../node_modules/react-type-animation/dist/cjs/index.js
-var cjs = __webpack_require__(25374);
-// EXTERNAL MODULE: ./src/app/components/GridData.js + 2 modules
-var GridData = __webpack_require__(59202);
-// EXTERNAL MODULE: ./public/test.json
-var test = __webpack_require__(29210);
-// EXTERNAL MODULE: ./src/app/firebase.js
-var firebase = __webpack_require__(60088);
-// EXTERNAL MODULE: ./node_modules/firebase/database/dist/index.mjs + 1 modules
-var dist = __webpack_require__(79512);
+var next_image = __webpack_require__(14178);
+// EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
+var module_proxy = __webpack_require__(61363);
 ;// CONCATENATED MODULE: ./src/app/components/Titles.js
-/* __next_internal_client_entry_do_not_use__ default auto */ 
 
-
-
-
-
-
-
-function Titles() {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var yyyy = today.getFullYear();
-    today = mm + "/" + dd + "/" + yyyy + " at " + today.getHours() + ":" + today.getMinutes();
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-        children: [
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h4", {
-                id: "update-text",
-                children: [
-                    "UPDATED ",
-                    today
-                ]
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(cjs/* TypeAnimation */.e, {
-                sequence: [
-                    // Same substring at the start will only be typed out once, initially
-                    "Keep Your Crypto Safe",
-                    1000
-                ],
-                wrapper: "span",
-                speed: 50,
-                style: {
-                    position: "absolute",
-                    color: "gold",
-                    fontFamily: "Air",
-                    fontWeight: "bold",
-                    fontStyle: "normal",
-                    fontSize: "4vw",
-                    width: "100%",
-                    textAlign: "center",
-                    marginTop: "10vh"
-                },
-                repeat: Infinity
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("h5", {
-                id: "title-text",
-                children: "Make sure that your crypto exchanges are safe and capable of withstanding market fluctuations. With the collapse of FTX indicating severe market insecurity, customers must actively ensure the safety of their investments."
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(node.Button, {
-                sx: {
-                    color: "white",
-                    fontFamily: "Air",
-                    border: 1,
-                    borderRadius: 2,
-                    position: "absolute",
-                    marginTop: "29.5vh",
-                    marginLeft: "43vw"
-                },
-                children: "Learn More"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                href: "https://www.coinglass.com/",
-                children: /*#__PURE__*/ jsx_runtime_.jsx(node.Button, {
-                    sx: {
-                        color: "white",
-                        fontFamily: "Air",
-                        border: 1,
-                        borderRadius: 2,
-                        position: "absolute",
-                        marginTop: "29.5vh",
-                        marginLeft: "50vw"
-                    },
-                    children: "Data"
-                })
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(GridData/* default */.Z, {
-                userData: test
-            })
-        ]
-    });
-}
-
-// EXTERNAL MODULE: ./node_modules/firebase/app/dist/index.mjs
-var app_dist = __webpack_require__(72856);
-// EXTERNAL MODULE: ./node_modules/firebase/analytics/dist/index.mjs + 4 modules
-var analytics_dist = __webpack_require__(78264);
-;// CONCATENATED MODULE: ./src/app/page.js
-/* __next_internal_client_entry_do_not_use__ default auto */ 
-
-
-
-// Import the functions you need from the SDKs you need
-
-
-
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyDdGwXJLvwKvMYfJwIn4NNlqhXYzJSa9SE",
-    authDomain: "clr-project-d126e.firebaseapp.com",
-    projectId: "clr-project-d126e",
-    storageBucket: "clr-project-d126e.appspot.com",
-    messagingSenderId: "795885607945",
-    appId: "1:795885607945:web:ebd3d5662fffcf3097acd8",
-    measurementId: "G-KRZ038HLWT",
-    databaseURL: "https://clr-project-d126e-default-rtdb.firebaseio.com"
-};
-// Initialize Firebase
-const app = (0,app_dist/* initializeApp */.ZF)(firebaseConfig);
-const analytics = (0,analytics_dist/* isSupported */.Gb)().then((yes)=>yes ? (0,analytics_dist/* getAnalytics */.IH)(app) : null);
-const db = (0,dist/* getDatabase */.N8)(app);
-function writeUserData(userId, name, email, imageUrl) {
-    set(ref(db, "test/"), {
-        username: name,
-        email: email,
-        profile_picture: imageUrl
-    });
-}
-function Home() {
-    (0,react_.useEffect)(()=>{
-    // writeUserData(2, 1, 1, 1);
-    }, []);
-    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ jsx_runtime_.jsx(Titles, {})
-    });
-}
-
-
-/***/ }),
-
-/***/ 87170:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   $$typeof: () => (/* binding */ $$typeof),
-/* harmony export */   __esModule: () => (/* binding */ __esModule),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61363);
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/bodhaanshravipati/clr-project/my-app/src/app/page.js`)
+const proxy = (0,module_proxy.createProxy)(String.raw`/Users/bodhaanshravipati/clr-project/my-app/src/app/components/Titles.js`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -538,7 +516,19 @@ const { __esModule, $$typeof } = proxy;
 const __default__ = proxy.default;
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
+/* harmony default export */ const Titles = (__default__);
+;// CONCATENATED MODULE: ./src/app/page.js
+
+
+
+
+// Import the functions you need from the SDKs you need
+function Home() {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ jsx_runtime_.jsx(Titles, {})
+    });
+}
+
 
 /***/ })
 
@@ -549,7 +539,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [697,421,451,573], () => (__webpack_exec__(52393)));
+var __webpack_exports__ = __webpack_require__.X(0, [652,818,380,178,690], () => (__webpack_exec__(52393)));
 module.exports = __webpack_exports__;
 
 })();

@@ -8,7 +8,8 @@ export default function UserSettings() {
         elements: {
           userButtonAvatarBox: {
             width: "8vw",
-            height: "auto"
+            height: "8vw"
+            // height: "auto"
           }
         }
       }}/>

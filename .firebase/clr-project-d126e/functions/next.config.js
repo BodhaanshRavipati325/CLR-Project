@@ -1,3 +1,7 @@
 // next.config.js
-var nextConfig = {};
+var nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true
+  }
+};
 module.exports = nextConfig;

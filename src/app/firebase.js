@@ -12,15 +12,14 @@ import { getStorage, ref as storageRef, uploadBytes } from "firebase/storage";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDdGwXJLvwKvMYfJwIn4NNlqhXYzJSa9SE",
-  authDomain: "clr-project-d126e.firebaseapp.com",
-  projectId: "clr-project-d126e",
-  storageBucket: "clr-project-d126e.appspot.com",
-  messagingSenderId: "795885607945",
-  appId: "1:795885607945:web:ebd3d5662fffcf3097acd8",
-  measurementId: "G-KRZ038HLWT",
-  databaseURL: "https://clr-project-d126e-default-rtdb.firebaseio.com",
-  storageBucket: "gs://clr-project-d126e.appspot.com"
+  apiKey: "AIzaSyBl-3JhrUauueuJ_1vlvDcc1eU7fEDw-k4",
+  authDomain: "clrnew.firebaseapp.com",
+  databaseURL: "https://clrnew-default-rtdb.firebaseio.com",
+  projectId: "clrnew",
+  storageBucket: "clrnew.appspot.com",
+  messagingSenderId: "314118139337",
+  appId: "1:314118139337:web:79970edbde5c56d54b0c18",
+  measurementId: "G-0C9R2FKYBD"
 };
 
 // Initialize Firebase

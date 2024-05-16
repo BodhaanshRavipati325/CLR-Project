@@ -3,10 +3,10 @@ import { atomWithStorage } from "jotai/utils";
 
 let userData = atomWithStorage('userData', {
     "userData": {
-        "user": "",
-        "university": "",
-        "email": "",
-        "city": "",
+        "user": "John Doe",
+        "university": "Duke University",
+        "email": "jdoe192@duke.edu",
+        "city": "Durham, NC",
     },
     "degree": "",
     "resumeLink": "/",

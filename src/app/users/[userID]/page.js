@@ -48,10 +48,10 @@ export default function Page({ params }) {
                 } else {
                     writeUserData(params.userID, {
                         "userData": {
-                            "user": "",
-                            "university": "",
-                            "email": "",
-                            "city": "",
+                            "user": "John Doe",
+                            "university": "Duke University",
+                            "email": "jdoe193@duke.edu",
+                            "city": "Durham, NC",
                         },
                         "degree": "",
                         "resumeLink": "/",
